@@ -1,0 +1,2335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WeddingWala — Pakistan's #1 Wedding Venue Platfor  m</title>
+  <meta name="description" content="Find and book the perfect wedding venue in Karachi. Browse 500+ verified banquet halls, marquees and event spaces."/>
+  <meta property="og:title" content="WeddingWala — Find Your Perfect Wedding Venue"/>
+  <meta property="og:description" content="Pakistan's #1 wedding venue booking platform. 500+ verified venues in Karachi."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --m: #C4161C;
+      --md: #970F14;
+      --ml: #E23438;
+      --gold: #C4161C;
+      --gl: #FFFFFF;
+      --gd: #970F14;
+      --cream: #FFFFFF;
+      --off: #FAFAFA;
+      --white: #ffffff;
+      --bd: #EFD8D9;
+      --bds: #E6B8BA;
+      --td: #1E1E1E;
+      --tm: #5C5C5C;
+      --tl: #8C8C8C;
+      --green: #1E6B35;
+      --greenl: #E8F6ED;
+      --orange: #8C5218;
+      --orangel: #FEF4E6;
+      --red: #8C1E1E;
+      --redl: #FDEDED;
+      --blue: #1A4D8C;
+      --bluel: #E6F1FB;
+      --r: 8px;
+      --sh1: 0 1px 4px rgba(44,24,16,.07), 0 2px 8px rgba(44,24,16,.04);
+      --sh2: 0 4px 20px rgba(44,24,16,.10);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--white);
+      color: var(--td);
+      font-size: 15.5px;
+      font-weight: 400;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: 0.1px;
+    }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.18; letter-spacing: -0.3px; }
+    img { display: block; max-width: 100%; }
+    button, input, select, textarea { font-family: 'Outfit', sans-serif; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── UTILITIES ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 72px 0; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      border: none; border-radius: var(--r); cursor: pointer;
+      font-weight: 500; font-size: 14px; letter-spacing: 0.2px; transition: all .18s;
+      padding: 11px 22px; white-space: nowrap;
+    }
+    .btn-primary { background: var(--m); color: var(--gl); }
+    .btn-primary:hover { background: var(--md); transform: translateY(-1px); }
+    .btn-gold { background: var(--gold); color: var(--md); }
+    .btn-gold:hover { background: var(--gd); color: var(--white); }
+    .btn-outline { background: transparent; border: 1.5px solid var(--m); color: var(--m); }
+    .btn-outline:hover { background: var(--m); color: var(--gl); }
+    .btn-ghost { background: transparent; border: 1.5px solid rgba(255,255,255,.4); color: #fff; }
+    .btn-ghost:hover { background: rgba(255,255,255,.1); }
+    .btn-lg { padding: 14px 32px; font-size: 15px; }
+    .btn-sm { padding: 7px 14px; font-size: 12.5px; }
+    .pill {
+      display: inline-block; font-size: 10.5px; font-weight: 600;
+      padding: 3px 10px; border-radius: 20px; letter-spacing: .4px;
+    }
+    .pill-maroon { background: var(--m); color: var(--gl); }
+    .pill-gold { background: var(--gl); color: var(--gd); border: 1px solid var(--gold); }
+    .pill-green { background: var(--greenl); color: var(--green); border: 1px solid #C0DBCA; }
+    .pill-orange { background: var(--orangel); color: var(--orange); border: 1px solid #F0CC8E; }
+    .pill-red { background: var(--redl); color: var(--red); border: 1px solid #E8BABA; }
+    .tag {
+      display: inline-block; font-size: 11px; color: var(--tm);
+      background: var(--off); border: 1px solid var(--bd);
+      border-radius: 20px; padding: 3px 9px;
+    }
+    .eyebrow {
+      font-size: 11.5px; font-weight: 600; color: var(--tm);
+      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;
+      display: block;
+    }
+    .section-title { font-size: 40px; font-weight: 600; color: var(--td); letter-spacing: -0.4px; }
+    .section-subtitle { font-size: 15.5px; color: var(--tm); font-weight: 300; margin-top: 10px; line-height: 1.75; }
+    .star { color: var(--gold); }
+
+    /* ── TOASTS ── */
+    #toast-container {
+      position: fixed; bottom: 24px; right: 24px; z-index: 9000;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .toast {
+      background: var(--white); border-radius: 12px; padding: 12px 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.15); display: flex; align-items: center;
+      gap: 10px; min-width: 240px; max-width: 340px;
+      animation: slideIn .3s ease;
+    }
+    .toast.success .toast-icon { background: var(--green); }
+    .toast.error .toast-icon { background: var(--red); }
+    .toast.info .toast-icon { background: var(--blue); }
+    .toast-icon {
+      width: 24px; height: 24px; border-radius: 50%; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; flex-shrink: 0;
+    }
+    .toast-msg { font-size: 13.5px; flex: 1; }
+    @keyframes slideIn { from { opacity:0; transform:translateX(20px); } to { opacity:1; transform:none; } }
+
+    /* ── NAV ── */
+    #navbar {
+      position: sticky; top: 0; z-index: 500;
+      background: var(--white); border-bottom: 1px solid var(--bd);
+      box-shadow: var(--sh1);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px; cursor: pointer;
+    }
+    .nav-logo-circle {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--m); border: 2px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gl); font-family: 'Playfair Display', serif;
+      font-weight: 700; font-size: 16px;
+    }
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif; font-size: 20px;
+      font-weight: 600; color: var(--m); letter-spacing: 0.2px;
+    }
+    .nav-logo-text em { color: var(--gold); font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-link {
+      padding: 8px 14px; border-radius: var(--r); border: none;
+      background: transparent; font-size: 14px; color: var(--tm);
+      cursor: pointer; font-weight: 400; transition: all .15s;
+    }
+    .nav-link:hover { color: var(--m); background: rgba(196,22,28,.06); }
+    .nav-link.active { color: var(--m); background: rgba(196,22,28,.08); font-weight: 600; }
+    .nav-cta { margin-left: 10px; }
+    .nav-menu-trigger {
+      background: none; border: none; cursor: pointer; color: var(--td);
+      display: flex; align-items: center; justify-content: center;
+      padding: 8px; border-radius: var(--r); margin-left: 8px; transition: background .15s;
+    }
+    .nav-menu-trigger:hover { background: var(--off); }
+
+    /* ── SIDE MENU (ROLES & ACCOUNT) ── */
+    .side-menu-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(30,10,10,.45);
+      z-index: 900;
+    }
+    .side-menu-overlay.open { display: block; }
+    .side-menu {
+      position: fixed; top: 0; right: 0; height: 100%; width: 330px; max-width: 88vw;
+      background: var(--white); box-shadow: -10px 0 40px rgba(0,0,0,.18);
+      padding: 24px 22px; overflow-y: auto;
+      transform: translateX(100%); transition: transform .3s ease;
+    }
+    .side-menu-overlay.open .side-menu { transform: translateX(0); }
+    .side-menu-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--bd);
+    }
+    .side-menu-close {
+      background: none; border: none; cursor: pointer; color: var(--tl);
+      display: flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: var(--r); transition: background .15s;
+    }
+    .side-menu-close:hover { background: var(--off); }
+    .side-menu-section { display: flex; flex-direction: column; margin-bottom: 8px; }
+    .side-menu-link {
+      display: block; width: 100%; text-align: left; background: none; border: none;
+      padding: 11px 8px; font-size: 14.5px; color: var(--td); cursor: pointer;
+      border-radius: var(--r); transition: background .15s;
+    }
+    .side-menu-link:hover { background: var(--off); color: var(--m); }
+    .side-menu-divider { height: 1px; background: var(--bd); margin: 16px 0 14px; }
+    .side-menu-account-title {
+      font-size: 11.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--tl); margin-bottom: 16px;
+    }
+    .side-menu-role { margin-bottom: 20px; }
+    .side-menu-role-title {
+      display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600;
+      color: var(--td); margin-bottom: 10px;
+    }
+    .side-menu-role-title svg { color: var(--m); flex-shrink: 0; }
+    .side-menu-role-btns { display: flex; gap: 8px; }
+    .btn-sm { padding: 8px 12px; font-size: 12.5px; flex: 1; justify-content: center; }
+
+    /* ── AUTH MODAL ── */
+    .auth-modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(44,24,16,.5); z-index: 950;
+      align-items: center; justify-content: center; padding: 20px;
+      backdrop-filter: blur(3px);
+    }
+    .auth-modal-overlay.open { display: flex; }
+    .auth-tabs { display: flex; gap: 8px; margin-bottom: 18px; background: var(--off); padding: 4px; border-radius: 10px; }
+    .auth-tab {
+      flex: 1; text-align: center; padding: 9px; border-radius: 8px; border: none;
+      background: transparent; font-size: 13px; font-weight: 600; color: var(--tm); cursor: pointer;
+    }
+    .auth-tab.active { background: var(--white); color: var(--m); box-shadow: var(--sh1); }
+    .auth-note { font-size: 12px; color: var(--tl); margin: -6px 0 14px; }
+
+    /* ── HERO ── */
+    #hero {
+      background: linear-gradient(150deg, var(--md) 0%, var(--m) 55%, #9B2E2E 100%);
+      padding: 92px 0 84px; position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1600&q=75') center 22%/cover;
+      opacity: .55; pointer-events: none;
+    }
+    .hero-scrim {
+      position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(100deg, rgba(90,15,15,.94) 0%, rgba(90,15,15,.82) 34%, rgba(90,15,15,.5) 62%, rgba(90,15,15,.25) 100%),
+                  linear-gradient(0deg, rgba(90,15,15,.5) 0%, rgba(90,15,15,0) 45%);
+    }
+    .hero-circle-1 {
+      position: absolute; top: 10%; right: 6%; width: 340px; height: 340px;
+      border-radius: 50%; border: 1px solid rgba(255,255,255,.14); pointer-events: none;
+    }
+    .hero-circle-2 {
+      position: absolute; bottom: 8%; left: 4%; width: 200px; height: 200px;
+      border-radius: 50%; border: 1px solid rgba(255,255,255,.09); pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 660px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
+      border-radius: 24px; padding: 6px 16px; margin-bottom: 24px;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold); display: inline-block;
+    }
+    .hero-badge-text {
+      font-size: 11.5px; color: var(--gl); font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase;
+    }
+    .hero-title {
+      font-size: 58px; font-weight: 600; color: #fff; line-height: 1.12;
+      letter-spacing: -0.5px; margin-bottom: 22px;
+    }
+    .hero-title em { color: var(--gl); font-style: italic; }
+    .hero-subtitle {
+      font-size: 16.5px; color: rgba(250,248,243,.72); font-weight: 300;
+      line-height: 1.8; margin-bottom: 40px; max-width: 500px;
+    }
+    .hero-search {
+      background: rgba(255,255,255,.97); border-radius: 14px;
+      padding: 6px 6px 6px 18px;
+      display: flex; gap: 8px; align-items: center;
+      margin-bottom: 44px; max-width: 560px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    }
+    .hero-search-icon { font-size: 18px; opacity: .45; flex-shrink: 0; }
+    .hero-search input {
+      flex: 1; border: none; outline: none; font-size: 15px;
+      color: var(--td); background: transparent; min-width: 0;
+    }
+    .hero-search input::placeholder { color: var(--tl); }
+    .hero-search-divider { width: 1px; height: 28px; background: var(--bd); flex-shrink: 0; }
+    .hero-search select {
+      border: none; outline: none; font-size: 14px;
+      color: var(--tm); background: transparent; padding: 0 10px; cursor: pointer;
+    }
+    .hero-search-btn {
+      background: var(--m); color: var(--gl); border: none;
+      border-radius: 10px; padding: 12px 24px; font-size: 14px;
+      font-weight: 600; cursor: pointer; transition: background .15s;
+      white-space: nowrap;
+    }
+    .hero-search-btn:hover { background: var(--md); }
+    .hero-stats { display: flex; gap: 36px; }
+    .hero-stat-val {
+      font-family: 'Playfair Display', serif; font-size: 26px;
+      font-weight: 700; color: var(--gl); line-height: 1;
+    }
+    .hero-stat-lbl { font-size: 12px; color: rgba(255,255,255,.55); margin-top: 4px; }
+
+    /* ── TRUST STRIP ── */
+    #trust {
+      background: var(--off); border-bottom: 1px solid var(--bd);
+      padding: 18px 0;
+    }
+    .trust-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+    .trust-item { display: flex; align-items: center; gap: 12px; }
+    .trust-icon { font-size: 20px; color: var(--m); display: flex; align-items: center; }
+    .trust-label { font-size: 13px; font-weight: 600; color: var(--m); margin-bottom: 2px; }
+    .trust-sub { font-size: 11.5px; color: var(--tl); }
+
+    /* ── FEATURED VENUES ── */
+    #featured { background: var(--white); }
+    .section-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 40px;
+    }
+    .venue-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+
+    /* ── VENUE CARD ── */
+    .venue-card {
+      border-radius: 14px; overflow: hidden; border: 1px solid var(--bd);
+      background: var(--white); cursor: pointer; transition: transform .2s, box-shadow .2s;
+    }
+    .venue-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(44,24,16,.13); }
+    .venue-card-img { position: relative; height: 200px; overflow: hidden; }
+    .venue-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .venue-card:hover .venue-card-img img { transform: scale(1.06); }
+    .venue-card-tag { position: absolute; top: 12px; left: 12px; }
+    .venue-card-rating {
+      position: absolute; top: 12px; right: 12px;
+      background: rgba(44,24,16,.72); color: #fff;
+      font-size: 12.5px; font-weight: 600; padding: 4px 10px; border-radius: 20px;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .venue-card-body { padding: 16px 18px; }
+    .venue-card-area {
+      font-size: 10.5px; color: var(--tl); letter-spacing: 1px;
+      text-transform: uppercase; margin-bottom: 5px;
+    }
+    .venue-card-name {
+      font-family: 'Playfair Display', serif; font-size: 19px;
+      font-weight: 600; color: var(--td); margin-bottom: 7px; line-height: 1.3; letter-spacing: -0.1px;
+    }
+    .venue-card-desc { font-size: 13px; color: var(--tm); font-weight: 300; line-height: 1.6; margin-bottom: 12px; }
+    .venue-card-amenities { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+    .venue-card-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 12px; border-top: 1px solid var(--off);
+    }
+    .venue-card-price-lbl { font-size: 10.5px; color: var(--tl); margin-bottom: 2px; }
+    .venue-card-price {
+      font-family: 'Playfair Display', serif; font-size: 17px;
+      font-weight: 700; color: var(--m);
+    }
+    .venue-card-meta { text-align: right; }
+    .venue-card-reviews { font-size: 11px; color: var(--tl); margin-bottom: 2px; }
+    .venue-card-cap { font-size: 12px; color: var(--tm); font-weight: 600; }
+
+    /* ── HOW IT WORKS ── */
+    #how { background: linear-gradient(150deg, var(--md), var(--m)); }
+    .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+    .step-card {
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2);
+      border-radius: 14px; padding: 28px 20px; text-align: center; position: relative;
+    }
+    .step-num {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--gold); color: var(--md);
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 13px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-icon { font-size: 32px; margin: 10px 0 14px; color: #fff; display: flex; justify-content: center; }
+    .step-title {
+      font-family: 'Playfair Display', serif; font-size: 17px;
+      color: #fff; margin-bottom: 8px;
+    }
+    .step-desc { font-size: 12.5px; color: rgba(255,255,255,.6); line-height: 1.65; }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--off); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .testi-card {
+      background: var(--white); border-radius: 14px; padding: 26px 22px;
+      border: 1px solid var(--bd); position: relative;
+    }
+    .testi-quote {
+      position: absolute; top: 16px; right: 20px;
+      font-family: 'Playfair Display', serif; font-size: 56px;
+      color: rgba(196,22,28,.07); line-height: 1;
+    }
+    .testi-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--m), #C45C7C);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 600; font-size: 14px; flex-shrink: 0;
+    }
+    .testi-header { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; }
+    .testi-name { font-size: 14px; font-weight: 600; color: var(--td); margin-bottom: 2px; }
+    .testi-event { font-size: 11.5px; color: var(--tl); }
+    .testi-stars { color: var(--gold); font-size: 15px; margin-bottom: 10px; }
+    .testi-text { font-size: 13.5px; color: var(--tm); line-height: 1.75; font-style: italic; }
+
+    /* ── CTA BANNER ── */
+    #cta-banner {
+      background: var(--m); padding: 64px 0; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-circle-1 {
+      position: absolute; top: -60px; right: -60px;
+      width: 240px; height: 240px; border-radius: 50%;
+      background: rgba(255,255,255,.08); pointer-events: none;
+    }
+    .cta-circle-2 {
+      position: absolute; bottom: -40px; left: -40px;
+      width: 180px; height: 180px; border-radius: 50%;
+      background: rgba(255,255,255,.06); pointer-events: none;
+    }
+    .cta-inner { position: relative; z-index: 1; }
+    .cta-title {
+      font-size: 42px; font-weight: 600; color: #fff; letter-spacing: -0.4px;
+      margin-bottom: 14px; line-height: 1.18;
+    }
+    .cta-title em { color: var(--gl); font-style: italic; }
+    .cta-subtitle { font-size: 15.5px; color: rgba(255,255,255,.7); font-weight: 300; margin-bottom: 32px; }
+    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    #footer { background: var(--md); padding: 48px 0 24px; }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px; margin-bottom: 36px; padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .footer-logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .footer-logo-circle {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--m); border: 2px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gl); font-family: 'Playfair Display', serif;
+      font-weight: 700; font-size: 15px;
+    }
+    .footer-logo-text {
+      font-family: 'Playfair Display', serif; font-size: 18px;
+      color: #fff; font-weight: 700;
+    }
+    .footer-logo-text em { color: var(--gold); font-style: italic; }
+    .footer-tagline { font-size: 12.5px; color: rgba(255,255,255,.45); line-height: 1.7; max-width: 230px; margin-bottom: 18px; }
+    .footer-social { display: flex; gap: 8px; }
+    .footer-social-btn {
+      width: 32px; height: 32px; border-radius: var(--r);
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gl); font-size: 12px; cursor: pointer; transition: background .15s;
+    }
+    .footer-social-btn:hover { background: rgba(255,255,255,.2); }
+    .footer-col-title {
+      font-size: 13px; font-weight: 600; color: var(--gl);
+      margin-bottom: 14px; letter-spacing: .5px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 8px; }
+    .footer-link {
+      font-size: 13px; color: rgba(255,255,255,.45);
+      cursor: pointer; transition: color .15s; background: none; border: none;
+      text-align: left; padding: 0;
+    }
+    .footer-link:hover { color: var(--gl); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 10px;
+      font-size: 12px; color: rgba(255,255,255,.3);
+    }
+
+    /* ── BROWSE PAGE ── */
+    #browse-page { background: var(--off); min-height: 100vh; padding: 36px 0; display: none; }
+    .browse-header { margin-bottom: 24px; }
+    .browse-title { font-size: 30px; font-weight: 600; letter-spacing: -0.3px; color: var(--td); margin-bottom: 4px; }
+    .browse-subtitle { font-size: 13.5px; color: var(--tl); }
+    .browse-filters {
+      background: var(--white); border-radius: 12px; border: 1px solid var(--bd);
+      padding: 16px 20px; margin-bottom: 24px;
+      display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+      box-shadow: var(--sh1);
+    }
+    .browse-filters input, .browse-filters select {
+      padding: 9px 12px; border-radius: var(--r); border: 1.5px solid var(--bd);
+      font-size: 13.5px; outline: none; background: var(--off); color: var(--td);
+      transition: border-color .15s;
+    }
+    .browse-filters input:focus, .browse-filters select:focus { border-color: var(--m); }
+    .browse-filters input { flex: 1; min-width: 180px; }
+    .browse-filters select { cursor: pointer; }
+    .venue-grid-lg { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .empty-state {
+      text-align: center; padding: 60px 24px; background: var(--white);
+      border-radius: 14px; border: 1px solid var(--bd); grid-column: 1/-1;
+    }
+    .empty-icon { font-size: 40px; margin-bottom: 14px; color: var(--tl); display: flex; justify-content: center; }
+    .empty-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--td); margin-bottom: 8px; }
+    .empty-subtitle { font-size: 13.5px; color: var(--tl); }
+
+    /* ── VENUE DETAIL ── */
+    #detail-page { background: var(--off); min-height: 100vh; padding: 28px 0; display: none; }
+    .detail-back {
+      display: inline-flex; align-items: center; gap: 6px; background: none;
+      border: none; cursor: pointer; color: var(--m); font-weight: 600;
+      font-size: 14px; margin-bottom: 22px;
+    }
+    .detail-back:hover { text-decoration: underline; }
+    .detail-grid { display: grid; grid-template-columns: 1fr 340px; gap: 24px; }
+    .detail-hero-img {
+      border-radius: 16px; overflow: hidden; height: 360px; position: relative; margin-bottom: 20px;
+    }
+    .detail-hero-img img { width: 100%; height: 100%; object-fit: cover; }
+    .detail-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(44,24,16,.55) 0%, transparent 60%);
+    }
+    .detail-hero-info { position: absolute; bottom: 20px; left: 22px; }
+    .detail-hero-name {
+      font-family: 'Playfair Display', serif; font-size: 30px;
+      font-weight: 700; color: #fff; margin-bottom: 6px;
+    }
+    .detail-hero-area { font-size: 14px; color: rgba(255,255,255,.8); }
+    .detail-tabs { display: flex; gap: 6px; margin-bottom: 20px; }
+    .detail-tab {
+      padding: 8px 20px; border-radius: var(--r); border: 1px solid var(--bd);
+      background: var(--white); font-size: 13.5px; font-weight: 500;
+      color: var(--tm); cursor: pointer; transition: all .15s; text-transform: capitalize;
+    }
+    .detail-tab.active { background: var(--m); color: var(--gl); border-color: var(--m); font-weight: 600; }
+    .detail-tab-content { background: var(--white); border-radius: 12px; border: 1px solid var(--bd); padding: 22px; }
+    .detail-stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 20px; }
+    .detail-stat {
+      background: var(--off); border-radius: var(--r); padding: 12px 14px;
+    }
+    .detail-stat-lbl { font-size: 10.5px; color: var(--tl); text-transform: uppercase; letter-spacing: .8px; margin-bottom: 4px; }
+    .detail-stat-val { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--m); }
+    .detail-about-title { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--td); margin-bottom: 10px; }
+    .detail-about-text { font-size: 14px; color: var(--tm); line-height: 1.8; }
+    .amenity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .amenity-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px; background: var(--off);
+      border-radius: var(--r); border: 1px solid var(--bd);
+    }
+    .amenity-check { color: var(--green); font-size: 15px; font-weight: 700; }
+    .amenity-label { font-size: 13.5px; font-weight: 500; color: var(--td); }
+    .packages-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .pkg-card {
+      border-radius: 12px; border: 2px solid var(--bd);
+      padding: 18px; cursor: pointer; transition: all .15s; position: relative;
+    }
+    .pkg-card.selected { border-color: var(--m); }
+    .pkg-selected-badge {
+      display: none; position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+      background: var(--m); color: var(--gl); font-size: 10px; font-weight: 700;
+      padding: 2px 10px; border-radius: 10px; white-space: nowrap;
+    }
+    .pkg-card.selected .pkg-selected-badge { display: block; }
+    .pkg-card-top { height: 4px; border-radius: 12px 12px 0 0; margin: -18px -18px 16px; }
+    .pkg-name { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 600; color: var(--td); margin-bottom: 4px; }
+    .pkg-guests { font-size: 11.5px; color: var(--tl); margin-bottom: 12px; }
+    .pkg-price { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--m); margin-bottom: 14px; }
+    .pkg-includes { display: flex; flex-direction: column; gap: 6px; }
+    .pkg-include { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--tm); }
+    .pkg-include-check { color: var(--green); font-size: 13px; font-weight: 700; }
+
+    /* BOOKING SIDEBAR */
+    .booking-sidebar {
+      background: var(--white); border-radius: 14px; border: 1px solid var(--bd);
+      padding: 22px; box-shadow: var(--sh2); position: sticky; top: 80px;
+    }
+    .sidebar-price {
+      font-family: 'Playfair Display', serif; font-size: 24px;
+      font-weight: 700; color: var(--m);
+    }
+    .sidebar-price-sub { font-size: 12.5px; color: var(--tl); margin-top: 2px; margin-bottom: 16px; }
+    .sidebar-divider { height: 1px; background: var(--off); margin: 14px 0; }
+    .form-label { font-size: 12px; font-weight: 600; color: var(--tm); display: block; margin-bottom: 5px; }
+    .form-control {
+      width: 100%; padding: 9px 12px; border-radius: var(--r);
+      border: 1.5px solid var(--bd); font-size: 13.5px; outline: none;
+      background: var(--off); color: var(--td); transition: border-color .15s; margin-bottom: 14px;
+    }
+    .form-control:focus { border-color: var(--m); }
+    .price-breakdown { background: var(--off); border-radius: var(--r); padding: 14px; margin-bottom: 16px; }
+    .price-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--tm); margin-bottom: 6px; }
+    .price-row.total {
+      font-size: 14.5px; color: var(--td); font-weight: 600;
+      padding-top: 8px; margin-top: 4px; border-top: 1px solid var(--bd);
+      margin-bottom: 0;
+    }
+    .price-row.total .price-val { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--m); }
+    .sidebar-actions { display: flex; flex-direction: column; gap: 10px; }
+    .sidebar-btn-primary {
+      width: 100%; background: var(--m); color: var(--gl); border: none;
+      border-radius: var(--r); padding: 14px; font-size: 15px;
+      font-weight: 700; cursor: pointer; transition: background .15s;
+    }
+    .sidebar-btn-primary:hover { background: var(--md); }
+    .sidebar-btn-wa {
+      width: 100%; background: none; border: 1.5px solid var(--m);
+      border-radius: var(--r); padding: 11px; font-size: 13.5px;
+      font-weight: 600; color: var(--m); cursor: pointer; transition: all .15s;
+    }
+    .sidebar-btn-wa:hover { background: var(--m); color: var(--gl); }
+
+    /* ── BOOKING MODAL ── */
+    #booking-modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(44,24,16,.5); z-index: 800;
+      align-items: center; justify-content: center; padding: 20px;
+      backdrop-filter: blur(3px);
+    }
+    #booking-modal-overlay.open { display: flex; }
+    .booking-modal {
+      background: var(--white); border-radius: 16px;
+      padding: 30px 34px; width: 100%; max-width: 520px;
+      max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 24px 80px rgba(0,0,0,.22);
+      animation: modalIn .25s ease;
+    }
+    @keyframes modalIn { from { opacity:0; transform: scale(.96); } to { opacity:1; transform: none; } }
+    .modal-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--off);
+    }
+    .modal-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--td); }
+    .modal-close {
+      background: none; border: none; font-size: 24px; cursor: pointer;
+      color: var(--tl); line-height: 1; width: 30px; height: 30px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: var(--r); transition: background .15s;
+    }
+    .modal-close:hover { background: var(--off); }
+    .modal-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .modal-success {
+      text-align: center; padding: 20px 0; display: none;
+    }
+    .modal-success-icon { font-size: 60px; margin-bottom: 16px; color: var(--green); display: flex; justify-content: center; }
+    .modal-success-title {
+      font-family: 'Playfair Display', serif; font-size: 24px;
+      color: var(--td); margin-bottom: 10px;
+    }
+    .modal-success-text { font-size: 14px; color: var(--tm); line-height: 1.7; margin-bottom: 22px; }
+
+    /* ── ABOUT PAGE ── */
+    #about-page { display: none; }
+    .about-hero {
+      background: linear-gradient(150deg, var(--md), var(--m));
+      padding: 72px 0; text-align: center;
+    }
+    .about-hero-title { font-size: 48px; font-weight: 600; letter-spacing: -0.4px; color: #fff; margin-bottom: 14px; }
+    .about-hero-title em { color: var(--gl); font-style: italic; }
+    .about-hero-sub { font-size: 15px; color: rgba(255,255,255,.75); max-width: 520px; margin: 0 auto; line-height: 1.7; }
+    .about-story { padding: 72px 0; background: var(--white); }
+    .about-story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .about-story-text { }
+    .about-story-para { font-size: 14.5px; color: var(--tm); line-height: 1.8; margin-bottom: 14px; }
+    .about-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .about-stat-card {
+      background: var(--off); border-radius: 12px; padding: 24px;
+      text-align: center; border: 1px solid var(--bd);
+    }
+    .about-stat-val {
+      font-family: 'Playfair Display', serif; font-size: 28px;
+      font-weight: 700; color: var(--m); margin-bottom: 6px;
+    }
+    .about-stat-lbl { font-size: 12.5px; color: var(--tl); }
+    .about-values { background: var(--off); padding: 72px 0; }
+    .about-values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 40px; }
+    .about-value-card {
+      text-align: center; padding: 28px 20px;
+      background: var(--white); border-radius: 14px; border: 1px solid var(--bd);
+    }
+    .about-value-icon { font-size: 34px; margin-bottom: 14px; color: var(--m); display: flex; justify-content: center; }
+    .about-value-title { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--td); margin-bottom: 8px; }
+    .about-value-text { font-size: 13.5px; color: var(--tm); line-height: 1.7; }
+
+    /* ── CONTACT PAGE ── */
+    #contact-page { display: none; }
+    .contact-hero {
+      background: linear-gradient(150deg, var(--md), var(--m));
+      padding: 72px 0; text-align: center;
+    }
+    .contact-hero-title { font-size: 48px; font-weight: 600; letter-spacing: -0.4px; color: #fff; margin-bottom: 12px; }
+    .contact-hero-sub { font-size: 15px; color: rgba(255,255,255,.75); }
+    .contact-body { padding: 72px 0; background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+    .contact-item {
+      display: flex; gap: 14px; margin-bottom: 24px; align-items: flex-start;
+    }
+    .contact-item-icon {
+      width: 46px; height: 46px; border-radius: var(--r); flex-shrink: 0;
+      background: rgba(196,22,28,.08); display: flex; color: var(--m);
+      align-items: center; justify-content: center; font-size: 20px;
+    }
+    .contact-item-lbl { font-size: 12px; font-weight: 600; color: var(--tl); margin-bottom: 3px; }
+    .contact-item-val { font-size: 14.5px; color: var(--td); font-weight: 500; }
+    .contact-form-card {
+      background: var(--off); border-radius: 14px;
+      border: 1px solid var(--bd); padding: 30px;
+    }
+    .contact-form-title { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--td); margin-bottom: 20px; }
+    .contact-success {
+      display: none; text-align: center; padding: 40px 20px;
+      background: var(--greenl); border-radius: 12px; border: 1px solid #C0DBCA;
+    }
+    .contact-success-icon { font-size: 52px; margin-bottom: 14px; }
+    .contact-success-title { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--green); margin-bottom: 8px; }
+    .contact-success-text { font-size: 14px; color: var(--tm); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-title { font-size: 38px; }
+      .venue-grid, .venue-grid-lg { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .contact-grid, .about-story-grid { grid-template-columns: 1fr; }
+      .packages-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .venue-grid, .venue-grid-lg { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr 1fr; }
+      .hero-stats { gap: 20px; flex-wrap: wrap; }
+      .nav-links { display: none; }
+      .cta-title { font-size: 26px; }
+      .section-title { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOAST CONTAINER -->
+<div id="toast-container"></div>
+
+<!-- ══════════ NAV ══════════ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-logo" onclick="showPage('home')">
+        <div class="nav-logo-circle">W</div>
+        <div class="nav-logo-text">Wedding<em>Wala</em></div>
+      </div>
+      <div class="nav-right" style="display:flex;align-items:center">
+        <div class="nav-links">
+          <button class="nav-link active" id="nav-home" onclick="showPage('home')">Home</button>
+          <button class="nav-link" id="nav-browse" onclick="showPage('browse')">Browse</button>
+          <button class="btn btn-primary nav-cta" onclick="showPage('browse')">Find Venue</button>
+        </div>
+        <button class="nav-menu-trigger" id="nav-avatar-btn" onclick="goToProfile()" aria-label="My Profile" style="display:none;background:var(--m);color:#fff;border-radius:50%;width:34px;height:34px;font-weight:700;font-size:14px;margin-left:8px">
+          <span id="nav-avatar-letter">U</span>
+        </button>
+        <button class="nav-menu-trigger" onclick="openMenu()" aria-label="Open menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2.2"/><circle cx="12" cy="12" r="2.2"/><circle cx="12" cy="19" r="2.2"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ SIDE MENU (ROLES & ACCOUNT) ══════════ -->
+<div class="side-menu-overlay" id="side-menu-overlay" onclick="closeMenu(event)">
+  <aside class="side-menu" id="side-menu" onclick="event.stopPropagation()">
+    <div class="side-menu-header">
+      <div class="nav-logo-text">Wedding<em>Wala</em></div>
+      <button class="side-menu-close" onclick="closeMenu()" aria-label="Close menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+      </button>
+    </div>
+
+    <div class="side-menu-section">
+      <button class="side-menu-link" onclick="showPage('home');closeMenu()">Home</button>
+      <button class="side-menu-link" onclick="showPage('browse');closeMenu()">Browse Venues</button>
+      <button class="side-menu-link" onclick="showPage('about');closeMenu()">About</button>
+      <button class="side-menu-link" onclick="showPage('contact');closeMenu()">Contact</button>
+      <button class="side-menu-link" onclick="showPage('partner');closeMenu()">List Your Venue</button>
+    </div>
+
+    <div class="side-menu-divider"></div>
+
+    <div id="account-guest-view">
+      <div class="side-menu-account-title">My Account</div>
+
+      <div class="side-menu-role">
+        <div class="side-menu-role-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Couple / Guest
+        </div>
+        <div class="side-menu-role-btns">
+          <button class="btn btn-outline btn-sm" onclick="openAuth('customer','login')">Login</button>
+          <button class="btn btn-primary btn-sm" onclick="openAuth('customer','signup')">Sign Up</button>
+        </div>
+      </div>
+
+      <div class="side-menu-role">
+        <div class="side-menu-role-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/></svg>
+          Banquet Owner
+        </div>
+        <div class="side-menu-role-btns">
+          <button class="btn btn-outline btn-sm" onclick="openAuth('owner','login')">Login</button>
+          <button class="btn btn-primary btn-sm" onclick="openAuth('owner','signup')">Sign Up</button>
+        </div>
+      </div>
+
+      <div class="side-menu-role">
+        <div class="side-menu-role-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
+          Admin
+        </div>
+        <div class="side-menu-role-btns">
+          <button class="btn btn-outline btn-sm" style="width:100%" onclick="openAuth('admin','login')">Admin Login</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="account-user-view" style="display:none">
+      <div class="side-menu-account-title">My Account</div>
+      <div style="background:var(--off);border-radius:10px;padding:14px;margin-bottom:14px">
+        <div style="font-size:14.5px;font-weight:600;color:var(--td);margin-bottom:2px" id="acc-name"></div>
+        <div style="font-size:12px;color:var(--tl)" id="acc-role"></div>
+      </div>
+      <button class="btn btn-primary btn-sm" id="acc-dashboard-btn" style="width:100%;margin-bottom:8px;justify-content:center;padding:11px"></button>
+      <button class="btn btn-outline btn-sm" style="width:100%;justify-content:center;padding:11px" onclick="doLogout()">Logout</button>
+    </div>
+  </aside>
+</div>
+
+<!-- ══════════ AUTH MODAL (LOGIN / SIGNUP) ══════════ -->
+<div class="auth-modal-overlay" id="auth-modal-overlay" onclick="closeAuthModal(event)">
+  <div class="booking-modal" style="max-width:420px" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3 class="modal-title" id="auth-modal-title">Login</h3>
+      <button class="modal-close" onclick="closeAuthModal()">✕</button>
+    </div>
+    <div id="auth-modal-body"></div>
+  </div>
+</div>
+
+<!-- ══════════ HOME PAGE ══════════ -->
+<div id="home-page">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-circle-1"></div>
+    <div class="hero-circle-2"></div>
+    <div class="hero-scrim"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          <span class="hero-badge-text">Pakistan's #1 Wedding Platform</span>
+        </div>
+        <h1 class="hero-title">Find Your Perfect <em>Wedding Venue</em></h1>
+        <p class="hero-subtitle">Browse 500+ verified banquet halls across Karachi — filter by area, capacity and budget and book in minutes.</p>
+        <div class="hero-search">
+          <span class="hero-search-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+          <input type="text" id="hero-search-input" placeholder="Search venues by name or area…"/>
+          <div class="hero-search-divider"></div>
+          <select id="hero-area-select">
+            <option>All Areas</option>
+            <option>Clifton</option>
+            <option>DHA Phase 5</option>
+            <option>Bahria Town</option>
+            <option>Gulshan</option>
+            <option>PECHS</option>
+            <option>North Nazimabad</option>
+          </select>
+          <button class="hero-search-btn" onclick="doHeroSearch()">Search</button>
+        </div>
+        <div class="hero-stats">
+          <div><div class="hero-stat-val">500+</div><div class="hero-stat-lbl">Venues Listed</div></div>
+          <div><div class="hero-stat-val">50K+</div><div class="hero-stat-lbl">Happy Couples</div></div>
+          <div><div class="hero-stat-val">4.8★</div><div class="hero-stat-lbl">Avg Rating</div></div>
+          <div><div class="hero-stat-val">24/7</div><div class="hero-stat-lbl">Support</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <section id="trust">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item"><span class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="8.5 12.5 11 15 15.5 9.5"/></svg></span><div><div class="trust-label">Verified Venues</div><div class="trust-sub">All halls personally inspected</div></div></div>
+        <div class="trust-item"><span class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><div><div class="trust-label">Secure Booking</div><div class="trust-sub">Your data is always protected</div></div></div>
+        <div class="trust-item"><span class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.4 8.4 8.3 8.3 0 0 1-3.8-.9L3 21l1.9-5.8a8.3 8.3 0 0 1-.9-3.7A8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5z"/></svg></span><div><div class="trust-label">24/7 Support</div><div class="trust-sub">Team is always a message away</div></div></div>
+        <div class="trust-item"><span class="trust-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2.5 15 9 22 9.8 17 14.5 18.3 21.5 12 18 5.7 21.5 7 14.5 2 9.8 9 9"/></svg></span><div><div class="trust-label">Honest Reviews</div><div class="trust-sub">Real reviews from real couples</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED VENUES -->
+  <section id="featured" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Hand-Picked</span>
+          <h2 class="section-title">Featured <em style="font-style:italic">Venues</em></h2>
+        </div>
+        <button class="btn btn-outline" onclick="showPage('browse')">View All →</button>
+      </div>
+      <div class="venue-grid" id="featured-grid"></div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:48px">
+        <span class="eyebrow" style="color:var(--gl)">Simple Process</span>
+        <h2 class="section-title" style="color:#fff">How It <em style="font-style:italic;color:var(--gl)">Works</em></h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card"><div class="step-num">1</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div class="step-title">Search & Filter</div><p class="step-desc">Browse 500+ venues by area, capacity, budget and amenities to find the perfect match.</p></div>
+        <div class="step-card"><div class="step-num">2</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2"/><line x1="16" y1="2.5" x2="16" y2="6.5"/><line x1="8" y1="2.5" x2="8" y2="6.5"/><line x1="3" y1="9.5" x2="21" y2="9.5"/></svg></div><div class="step-title">Pick Your Date</div><p class="step-desc">Check real-time availability and select your wedding date with confidence.</p></div>
+        <div class="step-card"><div class="step-num">3</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div><div class="step-title">Book Securely</div><p class="step-desc">Confirm with a 30% advance — fully secure and protected every step of the way.</p></div>
+        <div class="step-card"><div class="step-num">4</div><div class="step-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="8.5 12.5 11 15 15.5 9.5"/></svg></div><div class="step-title">Celebrate!</div><p class="step-desc">Your venue is locked in. Time to start planning every last detail of the big day.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:44px">
+        <span class="eyebrow">Real Stories</span>
+        <h2 class="section-title">What Couples Say</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card"><div class="testi-quote">❝</div><div class="testi-header"><div class="testi-avatar">AA</div><div><div class="testi-name">Ayesha & Ahmed</div><div class="testi-event">Baraat at Pearl Continental</div></div></div><div class="testi-stars">★★★★★</div><p class="testi-text">"WeddingWala made our venue search so easy! We found our dream hall in under an hour and the booking was completely seamless."</p></div>
+        <div class="testi-card"><div class="testi-quote">❝</div><div class="testi-header"><div class="testi-avatar">SB</div><div><div class="testi-name">Sara & Bilal</div><div class="testi-event">Walima at Serena Grand</div></div></div><div class="testi-stars">★★★★★</div><p class="testi-text">"Incredible platform. The venue photos were completely accurate and the staff was exactly as described. Highly recommend to everyone!"</p></div>
+        <div class="testi-card"><div class="testi-quote">❝</div><div class="testi-header"><div class="testi-avatar">HK</div><div><div class="testi-name">Hina & Kamran</div><div class="testi-event">Mehndi at Bahria Marquee</div></div></div><div class="testi-stars">★★★★★</div><p class="testi-text">"Our Mehndi night was absolutely magical. WeddingWala's customer support team was amazing throughout the whole process."</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section id="cta-banner">
+    <div class="cta-circle-1"></div>
+    <div class="cta-circle-2"></div>
+    <div class="container">
+      <div class="cta-inner">
+        <span class="eyebrow" style="color:var(--gl)">Start Your Journey</span>
+        <h2 class="cta-title">Your Dream Wedding Starts <em>Here</em></h2>
+        <p class="cta-subtitle">500+ venues · Real availability · Transparent pricing · Book your date today</p>
+        <div class="cta-buttons">
+          <button class="btn btn-gold btn-lg" onclick="showPage('browse')">Browse Venues →</button>
+          <button class="btn btn-ghost btn-lg" onclick="showPage('partner')">List Your Venue</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo-row">
+            <div class="footer-logo-circle">W</div>
+            <div class="footer-logo-text">Wedding<em>Wala</em></div>
+          </div>
+          <p class="footer-tagline">Pakistan's premier wedding venue platform — making your big day planning effortless and joyful.</p>
+          <div class="footer-social">
+            <div class="footer-social-btn">f</div>
+            <div class="footer-social-btn">in</div>
+            <div class="footer-social-btn">yt</div>
+            <div class="footer-social-btn">ig</div>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Venues</div>
+          <div class="footer-links">
+            <button class="footer-link" onclick="showPage('browse')">Clifton</button>
+            <button class="footer-link" onclick="showPage('browse')">DHA Phase 5</button>
+            <button class="footer-link" onclick="showPage('browse')">Bahria Town</button>
+            <button class="footer-link" onclick="showPage('browse')">Gulshan</button>
+            <button class="footer-link" onclick="showPage('browse')">PECHS</button>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <button class="footer-link" onclick="showPage('about')">About Us</button>
+            <button class="footer-link" onclick="showPage('home')">How It Works</button>
+            <button class="footer-link">Pricing</button>
+            <button class="footer-link">Blog</button>
+            <button class="footer-link">Careers</button>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Support</div>
+          <div class="footer-links">
+            <button class="footer-link" onclick="showPage('contact')">Help Center</button>
+            <button class="footer-link" onclick="showPage('contact')">Contact Us</button>
+            <button class="footer-link">FAQs</button>
+            <button class="footer-link">Terms of Service</button>
+            <button class="footer-link">Privacy Policy</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 WeddingWala. All rights reserved.</span>
+        <span style="display:inline-flex;align-items:center;gap:5px">Made with <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="color:var(--m)"><path d="M12 20.5s-7-4.4-9.5-8.9C1 8.8 2 5.5 5 4.4c2-.8 4.2 0 5.5 1.9C11.8 4.4 14 3.6 16 4.4c3 1.1 4 4.4 2.5 7.2C16 16.1 12 20.5 12 20.5z"/></svg> in Karachi, Pakistan</span>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /home-page -->
+
+
+<!-- ══════════ BROWSE PAGE ══════════ -->
+<div id="browse-page">
+  <div class="container">
+    <div class="browse-header">
+      <h2 class="browse-title">Browse Venues</h2>
+      <p class="browse-subtitle" id="browse-count">6 venues found</p>
+    </div>
+    <div class="browse-filters">
+      <input type="text" id="browse-search" placeholder="Search by name or area…" oninput="filterVenues()"/>
+      <select id="browse-area" onchange="filterVenues()">
+        <option value="">All Areas</option>
+        <option>Clifton</option>
+        <option>DHA Phase 5</option>
+        <option>Bahria Town</option>
+        <option>Gulshan</option>
+        <option>PECHS</option>
+        <option>North Nazimabad</option>
+      </select>
+      <select id="browse-budget" onchange="filterVenues()">
+        <option value="">All Budgets</option>
+        <option value="under150">Under PKR 150K</option>
+        <option value="150-300">PKR 150K – 300K</option>
+        <option value="over300">Over PKR 300K</option>
+      </select>
+      <select id="browse-sort" onchange="filterVenues()">
+        <option value="rating">Top Rated</option>
+        <option value="price_asc">Price: Low → High</option>
+        <option value="price_desc">Price: High → Low</option>
+        <option value="capacity">Largest First</option>
+      </select>
+    </div>
+    <div class="venue-grid-lg" id="browse-grid"></div>
+  </div>
+</div>
+
+
+<!-- ══════════ DETAIL PAGE ══════════ -->
+<div id="detail-page">
+  <div class="container">
+    <button class="detail-back" onclick="showPage('browse')">← Back to Browse</button>
+    <div class="detail-grid">
+      <div>
+        <div class="detail-hero-img">
+          <img id="detail-img" src="" alt="Venue"/>
+          <div class="detail-hero-overlay"></div>
+          <div class="detail-hero-info">
+            <h1 class="detail-hero-name" id="detail-name"></h1>
+            <div class="detail-hero-area" id="detail-area"></div>
+          </div>
+        </div>
+        <div class="detail-tabs">
+          <button class="detail-tab active" onclick="switchTab('overview',this)">Overview</button>
+          <button class="detail-tab" onclick="switchTab('amenities',this)">Amenities</button>
+          <button class="detail-tab" onclick="switchTab('packages',this)">Packages</button>
+        </div>
+        <!-- Overview -->
+        <div id="tab-overview" class="detail-tab-content">
+          <div class="detail-stats-grid" id="detail-stats-grid"></div>
+          <h3 class="detail-about-title">About This Venue</h3>
+          <p class="detail-about-text" id="detail-desc"></p>
+        </div>
+        <!-- Amenities -->
+        <div id="tab-amenities" class="detail-tab-content" style="display:none">
+          <h3 class="detail-about-title" style="margin-bottom:16px">Amenities & Features</h3>
+          <div class="amenity-grid" id="detail-amenities-grid"></div>
+        </div>
+        <!-- Packages -->
+        <div id="tab-packages" class="detail-tab-content" style="display:none">
+          <div class="packages-grid" id="detail-packages-grid"></div>
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <div>
+        <div class="booking-sidebar">
+          <div class="sidebar-price" id="sb-price"></div>
+          <div class="sidebar-price-sub" id="sb-pkg-sub"></div>
+          <div class="sidebar-divider"></div>
+          <label class="form-label">Select Package</label>
+          <select class="form-control" id="sb-pkg-select" onchange="updateSidebar()"></select>
+          <label class="form-label">Wedding Date</label>
+          <input type="date" class="form-control" id="sb-date"/>
+          <label class="form-label">Event Type</label>
+          <select class="form-control" id="sb-event">
+            <option>Baraat</option><option>Walima</option><option>Mehndi</option>
+            <option>Nikah</option><option>Engagement</option><option>Birthday</option><option>Corporate</option>
+          </select>
+          <label class="form-label">Number of Guests</label>
+          <input type="number" class="form-control" id="sb-guests" placeholder="e.g. 400"/>
+          <div class="price-breakdown">
+            <div class="price-row"><span>Package price</span><span id="sb-base-price" class="price-val"></span></div>
+            <div class="price-row"><span>Service fee (5%)</span><span id="sb-fee" class="price-val"></span></div>
+            <div class="price-row"><span>Advance required (30%)</span><span id="sb-advance" class="price-val"></span></div>
+            <div class="price-row total"><span>Total</span><span id="sb-total" class="price-val"></span></div>
+          </div>
+          <div class="sidebar-actions">
+            <button class="sidebar-btn-primary" onclick="openBookingModal()">Book This Venue</button>
+            <button class="sidebar-btn-wa" style="display:flex;align-items:center;justify-content:center;gap:7px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.4 8.4 8.3 8.3 0 0 1-3.8-.9L3 21l1.9-5.8a8.3 8.3 0 0 1-.9-3.7A8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5z"/></svg> WhatsApp Enquiry</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════ ABOUT PAGE ══════════ -->
+<div id="about-page">
+  <div class="about-hero">
+    <div class="container">
+      <h1 class="about-hero-title">About <em>WeddingWala</em></h1>
+      <p class="about-hero-sub">Pakistan's most trusted wedding venue platform, helping couples find their perfect venue since 2020.</p>
+    </div>
+  </div>
+  <section class="about-story">
+    <div class="container">
+      <div class="about-story-grid">
+        <div>
+          <span class="eyebrow">Our Story</span>
+          <h2 class="section-title" style="margin-bottom:18px">We Make Wedding Planning Easier</h2>
+          <p class="about-story-para">WeddingWala was founded by a team of Karachi-based tech entrepreneurs who experienced firsthand how stressful and time-consuming venue hunting could be. We built the platform we wished existed.</p>
+          <p class="about-story-para">Today we serve 50,000+ couples annually across Pakistan with verified listings, real-time availability, and transparent pricing — no hidden fees, no surprises.</p>
+          <p class="about-story-para">Our team of 40+ venue specialists personally visits every hall before it's listed, so you can browse with complete confidence.</p>
+        </div>
+        <div class="about-stats-grid">
+          <div class="about-stat-card"><div class="about-stat-val">500+</div><div class="about-stat-lbl">Verified Venues</div></div>
+          <div class="about-stat-card"><div class="about-stat-val">50K+</div><div class="about-stat-lbl">Happy Couples</div></div>
+          <div class="about-stat-card"><div class="about-stat-val">4.8★</div><div class="about-stat-lbl">Average Rating</div></div>
+          <div class="about-stat-card"><div class="about-stat-val">2020</div><div class="about-stat-lbl">Founded in Karachi</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="about-values">
+    <div class="container">
+      <div style="text-align:center">
+        <span class="eyebrow">Why Choose Us</span>
+        <h2 class="section-title">Our Values</h2>
+      </div>
+      <div class="about-values-grid">
+        <div class="about-value-card"><div class="about-value-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3z"/><polyline points="9 12 11 14 15 9.5"/></svg></div><h3 class="about-value-title">Transparency</h3><p class="about-value-text">Honest pricing, no hidden fees. What you see on the listing is exactly what you pay — nothing more.</p></div>
+        <div class="about-value-card"><div class="about-value-icon">✓</div><h3 class="about-value-title">Verification</h3><p class="about-value-text">Every venue is personally visited and verified by our team before it goes live on the platform.</p></div>
+        <div class="about-value-card"><div class="about-value-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7-4.4-9.5-8.9C1 8.8 2 5.5 5 4.4c2-.8 4.2 0 5.5 1.9C11.8 4.4 14 3.6 16 4.4c3 1.1 4 4.4 2.5 7.2C16 16.1 12 20.5 12 20.5z"/></svg></div><h3 class="about-value-title">Customer First</h3><p class="about-value-text">Your wedding day deserves perfection. Our support team is available 24/7 — we're with you every step.</p></div>
+      </div>
+    </div>
+  </section>
+  <footer id="footer-about">
+    <div class="container">
+      <div style="text-align:center;padding:32px 0;border-top:1px solid rgba(255,255,255,.12)">
+        <p style="font-size:12px;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:4px;justify-content:center">© 2026 WeddingWala · Made with <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 20.5s-7-4.4-9.5-8.9C1 8.8 2 5.5 5 4.4c2-.8 4.2 0 5.5 1.9C11.8 4.4 14 3.6 16 4.4c3 1.1 4 4.4 2.5 7.2C16 16.1 12 20.5 12 20.5z"/></svg> in Karachi</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ══════════ CONTACT PAGE ══════════ -->
+<div id="contact-page">
+  <div class="contact-hero">
+    <div class="container">
+      <h1 class="contact-hero-title">Get In Touch</h1>
+      <p class="contact-hero-sub">Our team replies within 2 hours on business days</p>
+    </div>
+  </div>
+  <section class="contact-body">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <span class="eyebrow">Contact Details</span>
+          <h2 class="section-title" style="margin-bottom:28px">Let's Talk</h2>
+          <div class="contact-item"><div class="contact-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div><div class="contact-item-lbl">Address</div><div class="contact-item-val">5th Floor, Ocean Mall, Clifton, Karachi</div></div></div>
+          <div class="contact-item"><div class="contact-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4l2 5-2.5 2a12 12 0 0 0 5.5 5.5l2-2.5 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2z"/></svg></div><div><div class="contact-item-lbl">Phone</div><div class="contact-item-val">+92-21-1234567</div></div></div>
+          <div class="contact-item"><div class="contact-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><polyline points="3 5.5 12 13 21 5.5"/></svg></div><div><div class="contact-item-lbl">Email</div><div class="contact-item-val">info@weddingwala.pk</div></div></div>
+          <div class="contact-item"><div class="contact-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.4 8.4 8.3 8.3 0 0 1-3.8-.9L3 21l1.9-5.8a8.3 8.3 0 0 1-.9-3.7A8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5z"/></svg></div><div><div class="contact-item-lbl">WhatsApp</div><div class="contact-item-val">+92-300-1234567</div></div></div>
+          <div class="contact-item"><div class="contact-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg></div><div><div class="contact-item-lbl">Business Hours</div><div class="contact-item-val">Monday – Saturday, 9am – 8pm</div></div></div>
+        </div>
+        <div>
+          <div class="contact-form-card" id="contact-form-wrap">
+            <h3 class="contact-form-title">Send Us a Message</h3>
+            <div class="modal-grid-2" style="gap:12px;margin-bottom:12px">
+              <div><label class="form-label">Your Name *</label><input type="text" class="form-control" id="c-name" placeholder="Full name" style="margin-bottom:0"/></div>
+              <div><label class="form-label">Phone *</label><input type="text" class="form-control" id="c-phone" placeholder="0321-XXXXXXX" style="margin-bottom:0"/></div>
+            </div>
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="c-email" placeholder="you@email.com"/>
+            <label class="form-label">Enquiry Type</label>
+            <select class="form-control" id="c-type">
+              <option>Booking Enquiry</option>
+              <option>List My Venue</option>
+              <option>General Question</option>
+              <option>Partnership</option>
+            </select>
+            <label class="form-label">Message *</label>
+            <textarea class="form-control" id="c-msg" rows="4" placeholder="Tell us how we can help…" style="resize:vertical"></textarea>
+            <button class="btn btn-primary btn-lg" style="width:100%" onclick="submitContact()">Send Message →</button>
+          </div>
+          <div class="contact-success" id="contact-success-wrap">
+            <div class="contact-success-icon">✓</div>
+            <h3 class="contact-success-title">Message Sent!</h3>
+            <p class="contact-success-text">Our team will get back to you within 2 hours. We look forward to helping you find the perfect venue!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ══════════ LIST YOUR VENUE (OWNER SIGNUP) PAGE ══════════ -->
+<div id="partner-page">
+  <div class="contact-hero">
+    <div class="container">
+      <h1 class="contact-hero-title">List Your Venue</h1>
+      <p class="contact-hero-sub">Join Pakistan's #1 wedding venue platform and reach thousands of couples planning their big day</p>
+    </div>
+  </div>
+  <div class="container" style="padding-top:28px">
+    <div style="background:var(--off);border:1px solid var(--bd);border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+      <div style="font-size:13.5px;color:var(--tm)">Already an owner? Sign up for a free account to add and manage your venue listings directly.</div>
+      <div style="display:flex;gap:8px;flex-shrink:0">
+        <button class="btn btn-outline btn-sm" onclick="openAuth('owner','login')">Owner Login</button>
+        <button class="btn btn-primary btn-sm" onclick="openAuth('owner','signup')">Owner Sign Up</button>
+      </div>
+    </div>
+  </div>
+  <section class="contact-body">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <span class="eyebrow">For Venue Owners</span>
+          <h2 class="section-title" style="margin-bottom:28px">Why Partner <em style="font-style:italic">With Us</em></h2>
+          <div class="contact-item"><div class="contact-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><div class="contact-item-lbl">Reach 50,000+ Couples</div><div class="contact-item-val">Get discovered by couples actively planning their wedding right now.</div></div></div>
+          <div class="contact-item"><div class="contact-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></div><div><div class="contact-item-lbl">Zero Listing Fees</div><div class="contact-item-val">List your venue for free — no setup cost, no monthly charges.</div></div></div>
+          <div class="contact-item"><div class="contact-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3z"/><polyline points="9 12 11 14 15 9.5"/></svg></div><div><div class="contact-item-lbl">Verified Badge</div><div class="contact-item-val">Our team personally verifies your listing to build instant trust with couples.</div></div></div>
+          <div class="contact-item"><div class="contact-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.4 8.4 8.3 8.3 0 0 1-3.8-.9L3 21l1.9-5.8a8.3 8.3 0 0 1-.9-3.7A8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5z"/></svg></div><div><div class="contact-item-lbl">Dedicated Support</div><div class="contact-item-val">Our team helps you set up, photograph and manage your listing.</div></div></div>
+        </div>
+        <div>
+          <div class="contact-form-card" id="partner-form-wrap">
+            <h3 class="contact-form-title">Tell Us About Your Venue</h3>
+            <div class="modal-grid-2" style="gap:12px;margin-bottom:12px">
+              <div><label class="form-label">Owner Name *</label><input type="text" class="form-control" id="pv-owner" placeholder="Full name" style="margin-bottom:0"/></div>
+              <div><label class="form-label">Phone *</label><input type="text" class="form-control" id="pv-phone" placeholder="0321-XXXXXXX" style="margin-bottom:0"/></div>
+            </div>
+            <label class="form-label">Venue / Business Name *</label>
+            <input type="text" class="form-control" id="pv-name" placeholder="e.g. Pearl Continental Banquet"/>
+            <div class="modal-grid-2" style="gap:12px;margin-bottom:12px">
+              <div>
+                <label class="form-label">Area *</label>
+                <select class="form-control" id="pv-area" style="margin-bottom:0">
+                  <option value="">Select area</option>
+                  <option>Clifton</option>
+                  <option>DHA Phase 5</option>
+                  <option>Bahria Town</option>
+                  <option>Gulshan</option>
+                  <option>PECHS</option>
+                  <option>North Nazimabad</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label">Venue Type *</label>
+                <select class="form-control" id="pv-type" style="margin-bottom:0">
+                  <option value="">Select type</option>
+                  <option>Banquet Hall</option>
+                  <option>Marquee</option>
+                  <option>Farmhouse</option>
+                  <option>Hotel Ballroom</option>
+                  <option>Community Hall</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="modal-grid-2" style="gap:12px;margin-bottom:12px">
+              <div><label class="form-label">Guest Capacity</label><input type="text" class="form-control" id="pv-capacity" placeholder="e.g. 300–500" style="margin-bottom:0"/></div>
+              <div><label class="form-label">Starting Price (PKR)</label><input type="text" class="form-control" id="pv-price" placeholder="e.g. 250,000" style="margin-bottom:0"/></div>
+            </div>
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="pv-email" placeholder="you@email.com"/>
+            <label class="form-label">Tell Us About Your Venue *</label>
+            <textarea class="form-control" id="pv-msg" rows="4" placeholder="Amenities, parking, catering options, anything that makes your venue special…" style="resize:vertical"></textarea>
+            <p style="font-size:12px;color:var(--tl);margin:-6px 0 14px">You can share photos with our team over WhatsApp once you submit this form.</p>
+            <button class="btn btn-primary btn-lg" style="width:100%" onclick="submitPartner()">Submit Venue Request →</button>
+          </div>
+          <div class="contact-success" id="partner-success-wrap">
+            <div class="contact-success-icon">✓</div>
+            <h3 class="contact-success-title">Request Received!</h3>
+            <p class="contact-success-text">Thanks for your interest in partnering with WeddingWala. Our onboarding team will contact you within 24 hours to verify your venue and get it listed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ══════════ OWNER DASHBOARD ══════════ -->
+<div id="owner-page">
+  <div class="contact-hero">
+    <div class="container">
+      <h1 class="contact-hero-title">Owner Dashboard</h1>
+      <p class="contact-hero-sub" id="owner-welcome">Add and manage your venue listings</p>
+    </div>
+  </div>
+  <section class="contact-body">
+    <div class="container">
+      <div class="contact-form-card" style="margin-bottom:28px">
+        <h3 class="contact-form-title">Account Settings</h3>
+        <div class="modal-grid-2" style="gap:12px;margin-bottom:12px">
+          <div><label class="form-label">Business / Venue Name</label><input type="text" class="form-control" id="op-business" style="margin-bottom:0"/></div>
+          <div><label class="form-label">Owner Name</label><input type="text" class="form-control" id="op-name" style="margin-bottom:0"/></div>
+        </div>
+        <div class="modal-grid-2" style="gap:12px;margin-bottom:12px">
+          <div><label class="form-label">Phone</label><input type="text" class="form-control" id="op-phone" style="margin-bottom:0"/></div>
+          <div><label class="form-label">Email</label><input type="email" class="form-control" id="op-email" disabled style="margin-bottom:0;opacity:.6"/></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="saveOwnerProfileDetails()">Save Account Settings</button>
+          <button class="btn btn-outline" onclick="doLogout()">Logout</button>
+        </div>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-form-card">
+            <h3 class="contact-form-title">Add New Venue</h3>
+            <label class="form-label">Venue Name *</label>
+            <input type="text" class="form-control" id="ov-name" placeholder="e.g. Sunset Marquee"/>
+            <div class="modal-grid-2" style="gap:12px;margin-bottom:12px">
+              <div>
+                <label class="form-label">Area *</label>
+                <select class="form-control" id="ov-area" style="margin-bottom:0">
+                  <option value="">Select area</option>
+                  <option>Clifton</option><option>DHA Phase 5</option><option>Bahria Town</option>
+                  <option>Gulshan</option><option>PECHS</option><option>North Nazimabad</option><option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label">Starting Price (PKR) *</label>
+                <input type="number" class="form-control" id="ov-price" placeholder="e.g. 200000" style="margin-bottom:0"/>
+              </div>
+            </div>
+            <div class="modal-grid-2" style="gap:12px;margin-bottom:12px">
+              <div>
+                <label class="form-label">Max Capacity *</label>
+                <input type="number" class="form-control" id="ov-capacity" placeholder="e.g. 500" style="margin-bottom:0"/>
+              </div>
+              <div>
+                <label class="form-label">Image URL</label>
+                <input type="text" class="form-control" id="ov-img" placeholder="https://…" style="margin-bottom:0"/>
+              </div>
+            </div>
+            <label class="form-label">Amenities (comma separated)</label>
+            <input type="text" class="form-control" id="ov-amenities" placeholder="AC, Parking, Catering, Sound System"/>
+            <label class="form-label">Description *</label>
+            <textarea class="form-control" id="ov-desc" rows="3" placeholder="Describe your venue…" style="resize:vertical"></textarea>
+            <p style="font-size:12px;color:var(--tl);margin:-6px 0 14px">Your venue will be reviewed by our team and go live once approved.</p>
+            <button class="btn btn-primary btn-lg" style="width:100%" onclick="submitOwnerVenue()">Submit Venue for Review →</button>
+          </div>
+        </div>
+        <div>
+          <div class="contact-form-card" style="background:var(--white)">
+            <h3 class="contact-form-title">My Venues</h3>
+            <div id="owner-venues-list" style="display:flex;flex-direction:column;gap:12px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ══════════ ADMIN DASHBOARD ══════════ -->
+<div id="admin-page">
+  <div class="contact-hero">
+    <div class="container">
+      <h1 class="contact-hero-title">Admin Panel</h1>
+      <p class="contact-hero-sub">Full control over venues, users, bookings and site content</p>
+    </div>
+  </div>
+  <section class="contact-body" style="padding-top:32px">
+    <div class="container">
+      <div class="detail-tabs" style="flex-wrap:wrap">
+        <button class="detail-tab active" onclick="switchAdminTab('overview',this)">Overview</button>
+        <button class="detail-tab" onclick="switchAdminTab('venues',this)">Venues</button>
+        <button class="detail-tab" onclick="switchAdminTab('bookings',this)">Bookings</button>
+        <button class="detail-tab" onclick="switchAdminTab('users',this)">Users</button>
+        <button class="detail-tab" onclick="switchAdminTab('settings',this)">Site Settings</button>
+      </div>
+
+      <!-- OVERVIEW TAB -->
+      <div id="admin-tab-overview" class="detail-tab-content">
+        <h3 class="detail-about-title" style="margin-bottom:16px">Platform Analytics</h3>
+        <div class="detail-stats-grid" id="admin-stats-grid" style="grid-template-columns:repeat(4,1fr)"></div>
+      </div>
+
+      <!-- VENUES TAB -->
+      <div id="admin-tab-venues" class="detail-tab-content" style="display:none">
+        <h3 class="detail-about-title" style="margin-bottom:16px">All Venue Submissions</h3>
+        <div id="admin-venues-list" style="display:flex;flex-direction:column;gap:12px"></div>
+      </div>
+
+      <!-- BOOKINGS TAB -->
+      <div id="admin-tab-bookings" class="detail-tab-content" style="display:none">
+        <h3 class="detail-about-title" style="margin-bottom:16px">All Booking Requests</h3>
+        <div id="admin-bookings-list" style="display:flex;flex-direction:column;gap:12px"></div>
+      </div>
+
+      <!-- USERS TAB -->
+      <div id="admin-tab-users" class="detail-tab-content" style="display:none">
+        <h3 class="detail-about-title" style="margin-bottom:16px">All Registered Users</h3>
+        <div id="admin-users-list" style="display:flex;flex-direction:column;gap:12px"></div>
+      </div>
+
+      <!-- SITE SETTINGS TAB -->
+      <div id="admin-tab-settings" class="detail-tab-content" style="display:none">
+        <h3 class="detail-about-title" style="margin-bottom:16px">Edit Website Content</h3>
+        <label class="form-label">Hero Title</label>
+        <input type="text" class="form-control" id="as-hero-title" placeholder="Find Your Perfect Wedding Venue"/>
+        <label class="form-label">Hero Subtitle</label>
+        <textarea class="form-control" id="as-hero-sub" rows="2" style="resize:vertical" placeholder="Browse 500+ verified banquet halls…"></textarea>
+        <div class="modal-grid-2" style="gap:12px;margin-bottom:12px">
+          <div><label class="form-label">Contact Phone</label><input type="text" class="form-control" id="as-phone" style="margin-bottom:0"/></div>
+          <div><label class="form-label">Contact Email</label><input type="text" class="form-control" id="as-email" style="margin-bottom:0"/></div>
+        </div>
+        <div class="modal-grid-2" style="gap:12px;margin-bottom:12px">
+          <div><label class="form-label">WhatsApp Number</label><input type="text" class="form-control" id="as-whatsapp" style="margin-bottom:0"/></div>
+          <div><label class="form-label">Business Hours</label><input type="text" class="form-control" id="as-hours" style="margin-bottom:0"/></div>
+        </div>
+        <label class="form-label">Office Address</label>
+        <input type="text" class="form-control" id="as-address"/>
+        <button class="btn btn-primary btn-lg" style="width:100%" onclick="saveSiteSettings()">Save Website Content →</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ══════════ MY PROFILE (CUSTOMER) ══════════ -->
+<div id="profile-page">
+  <div class="contact-hero">
+    <div class="container">
+      <h1 class="contact-hero-title">My Profile</h1>
+      <p class="contact-hero-sub">Manage your account and view your bookings</p>
+    </div>
+  </div>
+  <section class="contact-body">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <div class="contact-form-card">
+            <h3 class="contact-form-title">Account Details</h3>
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="pf-name"/>
+            <label class="form-label">Phone</label>
+            <input type="text" class="form-control" id="pf-phone"/>
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" id="pf-email" disabled style="opacity:.6"/>
+            <button class="btn btn-primary btn-lg" style="width:100%;margin-bottom:10px" onclick="saveProfileDetails()">Save Changes</button>
+            <button class="btn btn-outline btn-lg" style="width:100%" onclick="doLogout()">Logout</button>
+          </div>
+        </div>
+        <div>
+          <div class="contact-form-card" style="background:var(--white)">
+            <h3 class="contact-form-title">My Bookings</h3>
+            <div id="profile-bookings-list" style="display:flex;flex-direction:column;gap:12px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<div id="booking-modal-overlay" onclick="closeBookingModal(event)">
+  <div class="booking-modal">
+    <div id="modal-form-section">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Book Venue</h3>
+        <button class="modal-close" onclick="closeModal()">×</button>
+      </div>
+      <div class="modal-grid-2" style="gap:12px;margin-bottom:12px">
+        <div><label class="form-label">Full Name *</label><input type="text" class="form-control" id="m-name" placeholder="Your full name" style="margin-bottom:0"/></div>
+        <div><label class="form-label">Phone Number *</label><input type="text" class="form-control" id="m-phone" placeholder="0321-XXXXXXX" style="margin-bottom:0"/></div>
+      </div>
+      <label class="form-label">Email Address</label>
+      <input type="email" class="form-control" id="m-email" placeholder="you@email.com"/>
+      <div class="modal-grid-2" style="gap:12px;margin-bottom:0">
+        <div><label class="form-label">Wedding Date *</label><input type="date" class="form-control" id="m-date" style="margin-bottom:0"/></div>
+        <div><label class="form-label">Event Type</label>
+          <select class="form-control" id="m-event" style="margin-bottom:0">
+            <option>Baraat</option><option>Walima</option><option>Mehndi</option>
+            <option>Nikah</option><option>Engagement</option><option>Birthday</option><option>Corporate</option>
+          </select>
+        </div>
+      </div>
+      <div style="height:12px"></div>
+      <label class="form-label">Number of Guests</label>
+      <input type="number" class="form-control" id="m-guests" placeholder="e.g. 400"/>
+      <label class="form-label">Special Requirements</label>
+      <textarea class="form-control" id="m-notes" rows="3" placeholder="Parking, catering preferences, décor requests…" style="resize:vertical"></textarea>
+      <button class="sidebar-btn-primary" onclick="submitBooking()">Send Booking Request →</button>
+    </div>
+    <div class="modal-success" id="modal-success-section">
+      <div class="modal-success-icon"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="8.5 12.5 11 15 15.5 9.5"/></svg></div>
+      <h3 class="modal-success-title">Booking Request Sent!</h3>
+      <p class="modal-success-text">Your request has been submitted. The venue owner will confirm within 24 hours via phone and email. Your booking reference is <strong id="booking-ref"></strong>.</p>
+      <button class="btn btn-primary btn-lg" style="margin-top:6px" onclick="closeModal()">Done</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════ FIREBASE ══════════ -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<!-- ══════════ SCRIPT ══════════ -->
+<script>
+/* ── FIREBASE INIT (guarded) ── */
+const FIREBASE_READY = typeof firebase !== 'undefined';
+let auth = null, db = null;
+
+if (FIREBASE_READY) {
+  const firebaseConfig = {
+    apiKey: "AIzaSyAKgS7FRR_fgxEY39xKOavuAVjwf6L1Kis",
+    authDomain: "weddingwala-16ec7.firebaseapp.com",
+    projectId: "weddingwala-16ec7",
+    storageBucket: "weddingwala-16ec7.firebasestorage.app",
+    messagingSenderId: "700403169437",
+    appId: "1:700403169437:web:707047b106baacf09bbc74",
+    measurementId: "G-DZHH74N88T"
+  };
+  firebase.initializeApp(firebaseConfig);
+  auth = firebase.auth();
+  db = firebase.firestore();
+} else {
+  console.warn('Firebase SDK failed to load — running in offline/demo mode (login & live venues disabled).');
+}
+
+let currentUser = null;      // Firebase auth user object
+let currentUserData = null;  // {name,email,phone,role,businessName}
+let firestoreVenues = [];    // approved venues loaded live from Firestore
+
+/* ── DATA (SEED / DEMO VENUES — always shown) ── */
+const STATIC_VENUES = [
+  {id:1,name:"Pearl Continental Banquet",area:"Clifton",city:"Karachi",price:350000,capacity:800,rating:4.9,reviews:142,tag:"Most Popular",img:"https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=75",amenities:["AC","Parking","Catering","Sound System","Bridal Suite","Valet","Generator","Fireworks"],desc:"Karachi's most prestigious banquet hall with world-class service, stunning architecture, and memories that last a lifetime. Perfect for grand weddings of every style.",packages:[{name:"Basic",price:350000,guests:400,includes:["Hall rental","Basic décor","Sound system","Car parking"]},{name:"Standard",price:455000,guests:600,includes:["Full hall","Premium décor","Catering 400 pax","Sound & lights","Valet parking","Bridal suite"]},{name:"Premium",price:647500,guests:800,includes:["Full hall + garden","Luxury décor","Full catering","Photography","Valet","Bridal suite","Wedding cake"]}]},
+  {id:2,name:"Serena Grand Hall",area:"DHA Phase 5",city:"Karachi",price:220000,capacity:600,rating:4.8,reviews:98,tag:"Top Rated",img:"https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=75",amenities:["AC","Parking","Lawn","Sound System","Generator","CCTV"],desc:"Elegant indoor and outdoor spaces with lush gardens perfect for every wedding style. Serena Grand offers both marquee and banquet hall options in the heart of DHA.",packages:[{name:"Basic",price:220000,guests:300,includes:["Hall rental","Basic décor","Sound system","Parking"]},{name:"Standard",price:286000,guests:450,includes:["Hall + garden","Premium décor","Catering 300 pax","Sound","Generator"]},{name:"Premium",price:407000,guests:600,includes:["Full venue","Luxury décor","Full catering","Photo","Fireworks"]}]},
+  {id:3,name:"Bahria Marquee Palace",area:"Bahria Town",city:"Karachi",price:180000,capacity:1000,rating:4.7,reviews:77,tag:"Best Value",img:"https://images.unsplash.com/photo-1478146059778-26028b07395a?w=800&q=75",amenities:["AC","Parking","Marquee","Fireworks","Catering","Sound"],desc:"Sprawling marquee venue with breathtaking open-air settings for grand celebrations. Bahria Marquee Palace is ideal for those wanting scale without compromise on quality.",packages:[{name:"Basic",price:180000,guests:500,includes:["Marquee","Basic décor","Parking","Sound"]},{name:"Standard",price:234000,guests:750,includes:["Full marquee","Premium décor","Catering 500 pax","Fireworks"]},{name:"Premium",price:333000,guests:1000,includes:["Full venue","Luxury décor","Full catering","Fireworks","Photography"]}]},
+  {id:4,name:"Royal Noor Banquet",area:"Gulshan",city:"Karachi",price:150000,capacity:400,rating:4.5,reviews:34,tag:"New",img:"https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=75",amenities:["AC","Parking","Catering","Sound"],desc:"Brand new luxury hall in the heart of Gulshan with modern amenities and contemporary décor. Royal Noor is perfect for intimate, elegant gatherings.",packages:[{name:"Basic",price:150000,guests:200,includes:["Hall rental","Basic décor","Sound","Parking"]},{name:"Standard",price:195000,guests:300,includes:["Full hall","Premium décor","Catering 200 pax","Sound"]},{name:"Premium",price:277500,guests:400,includes:["Full hall","Luxury décor","Full catering","Photography"]}]},
+  {id:5,name:"Zafar Grand Marquee",area:"PECHS",city:"Karachi",price:260000,capacity:700,rating:4.6,reviews:55,tag:"Popular",img:"https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=75",amenities:["AC","Parking","Catering","Lawn","Sound System","Valet"],desc:"Versatile banquet spaces for weddings, corporate events and grand celebrations. Zafar Grand offers flexible hall configurations to suit any event size.",packages:[{name:"Basic",price:260000,guests:350,includes:["Hall rental","Décor","Sound","Parking"]},{name:"Standard",price:338000,guests:525,includes:["Full hall","Premium décor","Catering","Valet"]},{name:"Premium",price:481000,guests:700,includes:["Full venue","Luxury décor","Full catering","Photography","Fireworks"]}]},
+  {id:6,name:"Al-Hayat Palace",area:"North Nazimabad",city:"Karachi",price:120000,capacity:350,rating:4.4,reviews:28,tag:"Budget Friendly",img:"https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=800&q=75",amenities:["AC","Parking","Sound System","Generator"],desc:"Affordable elegance without compromise — perfect for intimate gatherings. Al-Hayat Palace delivers beautiful events that don't break the budget.",packages:[{name:"Basic",price:120000,guests:175,includes:["Hall rental","Basic décor","Sound","Parking"]},{name:"Standard",price:156000,guests:260,includes:["Full hall","Premium décor","Catering 175 pax","Sound"]},{name:"Premium",price:222000,guests:350,includes:["Full hall","Luxury décor","Full catering","Photography"]}]}
+];
+
+function getVenues() { return [...STATIC_VENUES, ...firestoreVenues]; }
+
+function listenFirestoreVenues() {
+  if (!FIREBASE_READY) return;
+  db.collection('venues').where('status','==','approved').onSnapshot(snap => {
+    firestoreVenues = snap.docs.map(d => ({ ...d.data(), id: d.id }));
+    renderFeatured();
+    if (document.getElementById('browse-page').style.display !== 'none') filterVenues();
+  }, err => console.error('Firestore venues error:', err));
+}
+
+let currentVenue = null;
+let selectedPkgIdx = 0;
+
+/* ── PAGE ROUTING ── */
+const PAGES = ['home','browse','detail','about','contact','partner','owner','admin','profile'];
+function showPage(p) {
+  if (p === 'owner' && (!currentUserData || currentUserData.role !== 'owner')) {
+    showToast('Please login as a Banquet Owner to access this page', 'error'); p = 'home';
+  }
+  if (p === 'admin' && (!currentUserData || currentUserData.role !== 'admin')) {
+    showToast('Admin access only', 'error'); p = 'home';
+  }
+  if (p === 'profile' && !currentUserData) {
+    showToast('Please login to view your profile', 'error'); p = 'home';
+  }
+  PAGES.forEach(id => {
+    const el = document.getElementById(id+'-page');
+    if (el) el.style.display = 'none';
+  });
+  const target = document.getElementById(p+'-page');
+  if (target) target.style.display = 'block';
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  const navEl = document.getElementById('nav-'+p);
+  if (navEl) navEl.classList.add('active');
+  if (p === 'browse') renderBrowse();
+  if (p === 'owner') { document.getElementById('owner-welcome').textContent = 'Welcome, ' + (currentUserData.businessName || currentUserData.name) + ' — add and manage your venue listings'; loadOwnerProfileForm(); loadOwnerVenues(); }
+  if (p === 'admin') { loadAdminOverview(); loadAdminVenues(); loadAdminBookings(); loadAdminUsers(); loadSiteSettingsIntoForm(); }
+  if (p === 'profile') loadProfilePage();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function goToProfile() {
+  if (!currentUserData) return;
+  if (currentUserData.role === 'owner') showPage('owner');
+  else if (currentUserData.role === 'admin') showPage('admin');
+  else showPage('profile');
+}
+
+function switchAdminTab(name, btn) {
+  ['overview','venues','bookings','users','settings'].forEach(t => {
+    document.getElementById('admin-tab-'+t).style.display = t===name ? 'block' : 'none';
+  });
+  btn.parentElement.querySelectorAll('.detail-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+/* ── FORMAT ── */
+const fmt = n => 'PKR ' + Number(n).toLocaleString();
+
+/* ── VENUE CARD HTML ── */
+function venueCardHTML(v) {
+  return `<div class="venue-card" onclick="openVenue('${v.id}')">
+    <div class="venue-card-img">
+      <img src="${v.img}" alt="${v.name}" loading="lazy"/>
+      <div class="venue-card-tag"><span class="pill pill-maroon">${v.tag}</span></div>
+      <div class="venue-card-rating"><span class="star">★</span>${v.rating}</div>
+    </div>
+    <div class="venue-card-body">
+      <div class="venue-card-area">${v.area}</div>
+      <div class="venue-card-name">${v.name}</div>
+      <p class="venue-card-desc">${v.desc.substring(0,72)}…</p>
+      <div class="venue-card-amenities">${v.amenities.slice(0,4).map(a=>`<span class="tag">${a}</span>`).join('')}</div>
+      <div class="venue-card-footer">
+        <div><div class="venue-card-price-lbl">Starting from</div><div class="venue-card-price">${fmt(v.price)}</div></div>
+        <div class="venue-card-meta"><div class="venue-card-reviews">${v.reviews} reviews</div><div class="venue-card-cap">${v.capacity.toLocaleString()} guests</div></div>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ── FEATURED ── */
+function renderFeatured() {
+  document.getElementById('featured-grid').innerHTML = getVenues().slice(0,3).map(venueCardHTML).join('');
+}
+
+/* ── BROWSE ── */
+function renderBrowse() {
+  filterVenues();
+}
+function filterVenues() {
+  const search = (document.getElementById('browse-search').value||'').toLowerCase();
+  const area   = document.getElementById('browse-area').value;
+  const budget = document.getElementById('browse-budget').value;
+  const sort   = document.getElementById('browse-sort').value;
+  let list = getVenues().filter(v => {
+    if (area && v.area !== area) return false;
+    if (search && !v.name.toLowerCase().includes(search) && !v.area.toLowerCase().includes(search)) return false;
+    if (budget === 'under150' && v.price >= 150000) return false;
+    if (budget === '150-300' && (v.price < 150000 || v.price > 300000)) return false;
+    if (budget === 'over300' && v.price <= 300000) return false;
+    return true;
+  }).sort((a,b) =>
+    sort === 'price_asc' ? a.price - b.price :
+    sort === 'price_desc' ? b.price - a.price :
+    sort === 'capacity' ? b.capacity - a.capacity :
+    b.rating - a.rating
+  );
+  document.getElementById('browse-count').textContent = `${list.length} venue${list.length!==1?'s':''} found`;
+  document.getElementById('browse-grid').innerHTML = list.length
+    ? list.map(venueCardHTML).join('')
+    : `<div class="empty-state"><div class="empty-icon"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h3 class="empty-title">No venues found</h3><p class="empty-subtitle">Try adjusting your search filters</p></div>`;
+}
+
+/* ── OPEN VENUE DETAIL ── */
+function openVenue(id) {
+  currentVenue = getVenues().find(v => String(v.id) === String(id));
+  if (!currentVenue) return;
+  selectedPkgIdx = 0;
+  document.getElementById('detail-img').src = currentVenue.img;
+  document.getElementById('detail-img').alt = currentVenue.name;
+  document.getElementById('detail-name').textContent = currentVenue.name;
+  document.getElementById('detail-area').innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:4px"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>' + currentVenue.area + ', Karachi';
+  document.getElementById('detail-desc').textContent = currentVenue.desc + ' Experience world-class hospitality and create memories that last a lifetime at one of Karachi\'s most sought-after venues.';
+  const stats = [
+    [currentVenue.rating + ' ★', 'Rating'],
+    [currentVenue.capacity.toLocaleString() + ' guests', 'Max Capacity'],
+    [fmt(currentVenue.price), 'Base Price'],
+    [currentVenue.reviews + '', 'Reviews'],
+    ['Karachi', 'City'],
+    ['Included', 'Parking']
+  ];
+  document.getElementById('detail-stats-grid').innerHTML = stats.map(([v,l])=>`<div class="detail-stat"><div class="detail-stat-lbl">${l}</div><div class="detail-stat-val">${v}</div></div>`).join('');
+  document.getElementById('detail-amenities-grid').innerHTML = currentVenue.amenities.map(a=>`<div class="amenity-item"><span class="amenity-check">✓</span><span class="amenity-label">${a}</span></div>`).join('');
+  renderPackages();
+  renderSidebar();
+  showPage('detail');
+}
+function renderPackages() {
+  const colors = ['#E23438','#C4161C','#970F14'];
+  document.getElementById('detail-packages-grid').innerHTML = currentVenue.packages.map((p,i)=>`
+    <div class="pkg-card${selectedPkgIdx===i?' selected':''}" onclick="selectPkg(${i})" id="pkg-${i}">
+      <div class="pkg-selected-badge">SELECTED</div>
+      <div class="pkg-card-top" style="background:${colors[i]||'#888'}"></div>
+      <div class="pkg-name">${p.name}</div>
+      <div class="pkg-guests">Up to ${p.guests.toLocaleString()} guests</div>
+      <div class="pkg-price">${fmt(p.price)}</div>
+      <div class="pkg-includes">${p.includes.map(inc=>`<div class="pkg-include"><span class="pkg-include-check">✓</span>${inc}</div>`).join('')}</div>
+    </div>`).join('');
+}
+function selectPkg(i) {
+  selectedPkgIdx = i;
+  renderPackages();
+  renderSidebar();
+  updateSidebar();
+}
+function renderSidebar() {
+  const pkgs = currentVenue.packages;
+  document.getElementById('sb-pkg-select').innerHTML = pkgs.map((p,i)=>`<option value="${i}">${p.name} — ${fmt(p.price)}</option>`).join('');
+  document.getElementById('sb-pkg-select').value = selectedPkgIdx;
+  updateSidebar();
+}
+function updateSidebar() {
+  const idx = parseInt(document.getElementById('sb-pkg-select').value)||0;
+  selectedPkgIdx = idx;
+  const p = currentVenue.packages[idx];
+  const fee = Math.round(p.price * .05);
+  const total = p.price + fee;
+  const advance = Math.round(total * .3);
+  document.getElementById('sb-price').textContent = fmt(p.price);
+  document.getElementById('sb-pkg-sub').textContent = p.name + ' Package · Up to ' + p.guests.toLocaleString() + ' guests';
+  document.getElementById('sb-base-price').textContent = fmt(p.price);
+  document.getElementById('sb-fee').textContent = fmt(fee);
+  document.getElementById('sb-advance').textContent = fmt(advance);
+  document.getElementById('sb-total').textContent = fmt(total);
+}
+
+/* ── TAB SWITCHING ── */
+function switchTab(name, btn) {
+  ['overview','amenities','packages'].forEach(t => {
+    document.getElementById('tab-'+t).style.display = t===name ? 'block' : 'none';
+  });
+  document.querySelectorAll('.detail-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+/* ── HERO SEARCH ── */
+function doHeroSearch() {
+  const q = document.getElementById('hero-search-input').value;
+  const a = document.getElementById('hero-area-select').value;
+  showPage('browse');
+  setTimeout(() => {
+    if (q) document.getElementById('browse-search').value = q;
+    if (a && a !== 'All Areas') document.getElementById('browse-area').value = a;
+    filterVenues();
+  }, 100);
+}
+
+/* ── BOOKING MODAL ── */
+function openBookingModal() {
+  if (!currentVenue) return;
+  document.getElementById('modal-title').textContent = 'Book ' + currentVenue.name.split(' ')[0];
+  document.getElementById('modal-form-section').style.display = 'block';
+  document.getElementById('modal-success-section').style.display = 'none';
+  if (currentUserData) {
+    document.getElementById('m-name').value = currentUserData.name || '';
+    document.getElementById('m-phone').value = currentUserData.phone || '';
+    document.getElementById('m-email').value = currentUserData.email || '';
+  }
+  document.getElementById('booking-modal-overlay').classList.add('open');
+}
+function closeBookingModal(e) {
+  if (e.target === document.getElementById('booking-modal-overlay')) closeModal();
+}
+function closeModal() {
+  document.getElementById('booking-modal-overlay').classList.remove('open');
+}
+function submitBooking() {
+  const name  = document.getElementById('m-name').value.trim();
+  const phone = document.getElementById('m-phone').value.trim();
+  const email = document.getElementById('m-email').value.trim();
+  const date  = document.getElementById('m-date').value;
+  const eventType = document.getElementById('m-event').value;
+  const guests = document.getElementById('m-guests').value;
+  const notes = document.getElementById('m-notes').value.trim();
+  if (!name || !phone || !date) {
+    showToast('Please fill in name, phone and date', 'error'); return;
+  }
+  const ref = 'WW-' + Date.now().toString().slice(-6);
+
+  if (FIREBASE_READY) {
+    db.collection('bookings').add({
+      ref, name, phone, email, date, eventType, guests, notes,
+      venueId: currentVenue ? String(currentVenue.id) : null,
+      venueName: currentVenue ? currentVenue.name : null,
+      customerId: currentUser ? currentUser.uid : null,
+      status: 'pending',
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    }).catch(err => console.error('Booking save error:', err));
+  }
+
+  document.getElementById('booking-ref').textContent = ref;
+  document.getElementById('modal-form-section').style.display = 'none';
+  document.getElementById('modal-success-section').style.display = 'block';
+  showToast('Booking request sent successfully!', 'success');
+}
+
+/* ── CONTACT FORM ── */
+function submitContact() {
+  const name = document.getElementById('c-name').value.trim();
+  const phone = document.getElementById('c-phone').value.trim();
+  const msg  = document.getElementById('c-msg').value.trim();
+  if (!name || !phone || !msg) {
+    showToast('Please fill in all required fields', 'error'); return;
+  }
+  document.getElementById('contact-form-wrap').style.display = 'none';
+  document.getElementById('contact-success-wrap').style.display = 'block';
+  showToast('Message sent! We\'ll reply within 2 hours.', 'success');
+}
+
+function submitPartner() {
+  const owner = document.getElementById('pv-owner').value.trim();
+  const phone = document.getElementById('pv-phone').value.trim();
+  const venue = document.getElementById('pv-name').value.trim();
+  const area = document.getElementById('pv-area').value;
+  const type = document.getElementById('pv-type').value;
+  const msg = document.getElementById('pv-msg').value.trim();
+  if (!owner || !phone || !venue || !area || !type || !msg) {
+    showToast('Please fill in all required fields', 'error'); return;
+  }
+  document.getElementById('partner-form-wrap').style.display = 'none';
+  document.getElementById('partner-success-wrap').style.display = 'block';
+  showToast('Venue request submitted! We\'ll be in touch soon.', 'success');
+}
+
+/* ── SIDE MENU ── */
+function openMenu() {
+  document.getElementById('side-menu-overlay').classList.add('open');
+}
+function closeMenu(e) {
+  if (e && e.target !== e.currentTarget) return;
+  document.getElementById('side-menu-overlay').classList.remove('open');
+}
+
+/* ── ROLE-BASED AUTH (LOGIN / SIGNUP) ── */
+const AUTH_CONTENT = {
+  customer_login: { title: 'Login as Guest', switchTo: 'customer_signup', switchLabel: "Don't have an account? Sign Up", fields: [
+    {id:'auth-email', label:'Email Address', type:'email', placeholder:'you@email.com'},
+    {id:'auth-password', label:'Password', type:'password', placeholder:'••••••••'}
+  ], submitLabel:'Login' },
+  customer_signup: { title: 'Create an Account', switchTo: 'customer_login', switchLabel: 'Already have an account? Login', fields: [
+    {id:'auth-name', label:'Full Name', type:'text', placeholder:'Your full name'},
+    {id:'auth-email', label:'Email Address', type:'email', placeholder:'you@email.com'},
+    {id:'auth-phone', label:'Phone', type:'text', placeholder:'0321-XXXXXXX'},
+    {id:'auth-password', label:'Password', type:'password', placeholder:'Create a password'}
+  ], submitLabel:'Sign Up' },
+  owner_login: { title: 'Banquet Owner Login', switchTo: 'owner_signup', switchLabel: 'New venue owner? Sign Up', fields: [
+    {id:'auth-email', label:'Business Email', type:'email', placeholder:'you@business.com'},
+    {id:'auth-password', label:'Password', type:'password', placeholder:'••••••••'}
+  ], submitLabel:'Login' },
+  owner_signup: { title: 'Register as Banquet Owner', switchTo: 'owner_login', switchLabel: 'Already registered? Login', fields: [
+    {id:'auth-business', label:'Business / Venue Name', type:'text', placeholder:'e.g. Pearl Continental Banquet'},
+    {id:'auth-name', label:'Owner Name', type:'text', placeholder:'Your full name'},
+    {id:'auth-email', label:'Email Address', type:'email', placeholder:'you@email.com'},
+    {id:'auth-phone', label:'Phone', type:'text', placeholder:'0321-XXXXXXX'},
+    {id:'auth-password', label:'Password', type:'password', placeholder:'Create a password'}
+  ], submitLabel:'Sign Up' },
+  admin_login: { title: 'Admin Login', switchTo: null, fields: [
+    {id:'auth-email', label:'Admin Email', type:'email', placeholder:'admin@weddingwala.pk'},
+    {id:'auth-password', label:'Password', type:'password', placeholder:'••••••••'}
+  ], submitLabel:'Login' }
+};
+
+function openAuth(role, mode) {
+  if (!FIREBASE_READY) { showToast('Login system unavailable right now — please check your internet connection and reload.', 'error'); return; }
+  closeMenu();
+  renderAuth(role, mode);
+  document.getElementById('auth-modal-overlay').classList.add('open');
+}
+
+function renderAuth(role, mode) {
+  const cfg = AUTH_CONTENT[role + '_' + mode];
+  document.getElementById('auth-modal-title').textContent = cfg.title;
+  let html = cfg.fields.map(f =>
+    `<label class="form-label">${f.label}</label><input type="${f.type}" class="form-control" id="${f.id}" placeholder="${f.placeholder}"/>`
+  ).join('');
+  html += `<button class="btn btn-primary btn-lg" style="width:100%;margin-top:4px" onclick="submitAuth('${role}','${mode}')">${cfg.submitLabel}</button>`;
+  if (cfg.switchTo) {
+    const [swRole, swMode] = cfg.switchTo.split('_');
+    html += `<p class="auth-note" style="text-align:center;margin-top:16px;margin-bottom:0"><a href="#" onclick="event.preventDefault();renderAuth('${swRole}','${swMode}')" style="color:var(--m);font-weight:600;text-decoration:underline">${cfg.switchLabel}</a></p>`;
+  }
+  document.getElementById('auth-modal-body').innerHTML = html;
+}
+
+function closeAuthModal(e) {
+  if (e && e.target !== e.currentTarget) return;
+  document.getElementById('auth-modal-overlay').classList.remove('open');
+}
+
+function submitAuth(role, mode) {
+  const email = document.getElementById('auth-email').value.trim();
+  const password = document.getElementById('auth-password').value.trim();
+  if (!email || !password) { showToast('Please fill in all required fields', 'error'); return; }
+
+  if (mode === 'signup') {
+    const nameEl = document.getElementById('auth-name');
+    const phoneEl = document.getElementById('auth-phone');
+    const businessEl = document.getElementById('auth-business');
+    const name = nameEl ? nameEl.value.trim() : '';
+    const phone = phoneEl ? phoneEl.value.trim() : '';
+    const businessName = businessEl ? businessEl.value.trim() : '';
+    if (!name || !phone || (role === 'owner' && !businessName)) {
+      showToast('Please fill in all required fields', 'error'); return;
+    }
+    auth.createUserWithEmailAndPassword(email, password).then(cred => {
+      const userData = { name, email, phone, role, createdAt: firebase.firestore.FieldValue.serverTimestamp() };
+      if (role === 'owner') userData.businessName = businessName;
+      return db.collection('users').doc(cred.user.uid).set(userData).then(() => ({cred, userData}));
+    }).then(({cred, userData}) => {
+      currentUser = cred.user;
+      currentUserData = userData;
+      updateAccountUI();
+      closeAuthModal();
+      showToast(`Account created! Welcome, ${name}.`, 'success');
+    }).catch(err => showToast(err.message.replace('Firebase: ',''), 'error'));
+  } else {
+    auth.signInWithEmailAndPassword(email, password).then(async cred => {
+      const doc = await db.collection('users').doc(cred.user.uid).get();
+      if (!doc.exists || doc.data().role !== role) {
+        await auth.signOut();
+        showToast('This account is not registered for this role. Please use the correct login.', 'error');
+        return;
+      }
+      currentUser = cred.user;
+      currentUserData = doc.data();
+      updateAccountUI();
+      closeAuthModal();
+      showToast(`Welcome back, ${currentUserData.name || currentUserData.businessName}!`, 'success');
+    }).catch(err => showToast(err.message.replace('Firebase: ',''), 'error'));
+  }
+}
+
+function doLogout() {
+  if (!FIREBASE_READY) return;
+  auth.signOut().then(() => {
+    currentUser = null;
+    currentUserData = null;
+    updateAccountUI();
+    showToast('Logged out successfully', 'info');
+    closeMenu();
+    showPage('home');
+  });
+}
+
+function updateAccountUI() {
+  const guestView = document.getElementById('account-guest-view');
+  const userView = document.getElementById('account-user-view');
+  const navAvatarBtn = document.getElementById('nav-avatar-btn');
+  if (currentUser && currentUserData) {
+    guestView.style.display = 'none';
+    userView.style.display = 'block';
+    const displayName = currentUserData.businessName || currentUserData.name || currentUser.email;
+    document.getElementById('acc-name').textContent = displayName;
+    const roleLabel = currentUserData.role === 'owner' ? 'Banquet Owner' : currentUserData.role === 'admin' ? 'Admin' : 'Guest';
+    document.getElementById('acc-role').textContent = roleLabel;
+    navAvatarBtn.style.display = 'flex';
+    navAvatarBtn.style.alignItems = 'center';
+    navAvatarBtn.style.justifyContent = 'center';
+    document.getElementById('nav-avatar-letter').textContent = displayName.trim().charAt(0).toUpperCase();
+    const dashBtn = document.getElementById('acc-dashboard-btn');
+    if (currentUserData.role === 'owner') {
+      dashBtn.style.display = 'block';
+      dashBtn.textContent = 'My Venue Dashboard';
+      dashBtn.onclick = () => { showPage('owner'); closeMenu(); };
+    } else if (currentUserData.role === 'admin') {
+      dashBtn.style.display = 'block';
+      dashBtn.textContent = 'Admin Panel';
+      dashBtn.onclick = () => { showPage('admin'); closeMenu(); };
+    } else {
+      dashBtn.style.display = 'block';
+      dashBtn.textContent = 'My Profile';
+      dashBtn.onclick = () => { showPage('profile'); closeMenu(); };
+    }
+  } else {
+    guestView.style.display = 'block';
+    userView.style.display = 'none';
+    navAvatarBtn.style.display = 'none';
+  }
+}
+
+/* ── TOAST ── */
+function showToast(msg, type='info') {
+  const icons = {success:'✓', error:'✕', info:'ℹ'};
+  const t = document.createElement('div');
+  t.className = 'toast ' + type;
+  t.innerHTML = `<div class="toast-icon">${icons[type]||'ℹ'}</div><div class="toast-msg">${msg}</div>`;
+  document.getElementById('toast-container').appendChild(t);
+  setTimeout(() => t.remove(), 3500);
+}
+
+/* ── CUSTOMER PROFILE ── */
+function loadProfilePage() {
+  if (!currentUser || !currentUserData) return;
+  document.getElementById('pf-name').value = currentUserData.name || '';
+  document.getElementById('pf-phone').value = currentUserData.phone || '';
+  document.getElementById('pf-email').value = currentUserData.email || '';
+
+  const list = document.getElementById('profile-bookings-list');
+  if (!FIREBASE_READY) { list.innerHTML = '<p style="font-size:13px;color:var(--tl)">Bookings unavailable offline.</p>'; return; }
+  db.collection('bookings').where('customerId','==',currentUser.uid).orderBy('createdAt','desc').get().then(snap => {
+    if (snap.empty) { list.innerHTML = '<p style="font-size:13px;color:var(--tl)">You haven\'t made any booking requests yet.</p>'; return; }
+    const statusPill = s => s === 'completed' ? 'pill-green' : s === 'confirmed' ? 'pill-orange' : s === 'cancelled' ? 'pill-red' : 'pill-gold';
+    list.innerHTML = snap.docs.map(d => {
+      const b = d.data();
+      return `<div style="border:1px solid var(--bd);border-radius:10px;padding:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+          <div style="font-weight:600;font-size:14px">${b.venueName || 'Venue'}</div>
+          <span class="pill ${statusPill(b.status)}">${b.status}</span>
+        </div>
+        <div style="font-size:12px;color:var(--tl)">${b.eventType} · ${b.date} · Ref: ${b.ref}</div>
+      </div>`;
+    }).join('');
+  }).catch(err => { list.innerHTML = '<p style="font-size:13px;color:var(--tl)">Could not load bookings.</p>'; console.error(err); });
+}
+
+function saveProfileDetails() {
+  if (!currentUser) return;
+  const name = document.getElementById('pf-name').value.trim();
+  const phone = document.getElementById('pf-phone').value.trim();
+  if (!name || !phone) { showToast('Please fill in your name and phone', 'error'); return; }
+  db.collection('users').doc(currentUser.uid).update({ name, phone }).then(() => {
+    currentUserData.name = name;
+    currentUserData.phone = phone;
+    updateAccountUI();
+    showToast('Profile updated!', 'success');
+  }).catch(err => showToast(err.message, 'error'));
+}
+
+/* ── OWNER: ACCOUNT SETTINGS ── */
+function loadOwnerProfileForm() {
+  if (!currentUserData) return;
+  document.getElementById('op-business').value = currentUserData.businessName || '';
+  document.getElementById('op-name').value = currentUserData.name || '';
+  document.getElementById('op-phone').value = currentUserData.phone || '';
+  document.getElementById('op-email').value = currentUserData.email || '';
+}
+
+function saveOwnerProfileDetails() {
+  if (!currentUser) return;
+  const businessName = document.getElementById('op-business').value.trim();
+  const name = document.getElementById('op-name').value.trim();
+  const phone = document.getElementById('op-phone').value.trim();
+  if (!businessName || !name || !phone) { showToast('Please fill in all fields', 'error'); return; }
+  db.collection('users').doc(currentUser.uid).update({ businessName, name, phone }).then(() => {
+    currentUserData.businessName = businessName;
+    currentUserData.name = name;
+    currentUserData.phone = phone;
+    updateAccountUI();
+    showToast('Account settings updated!', 'success');
+  }).catch(err => showToast(err.message, 'error'));
+}
+
+/* ── OWNER: ADD / MANAGE VENUES ── */
+function submitOwnerVenue() {
+  if (!FIREBASE_READY) { showToast('Backend unavailable right now — please check your internet connection.', 'error'); return; }
+  if (!currentUser || !currentUserData || currentUserData.role !== 'owner') {
+    showToast('Please login as a Banquet Owner first', 'error'); return;
+  }
+  const name = document.getElementById('ov-name').value.trim();
+  const area = document.getElementById('ov-area').value;
+  const price = parseInt(document.getElementById('ov-price').value);
+  const capacity = parseInt(document.getElementById('ov-capacity').value);
+  const img = document.getElementById('ov-img').value.trim() || 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=75';
+  const amenities = document.getElementById('ov-amenities').value.split(',').map(a=>a.trim()).filter(Boolean);
+  const desc = document.getElementById('ov-desc').value.trim();
+  if (!name || !area || !price || !capacity || !desc) {
+    showToast('Please fill in all required fields', 'error'); return;
+  }
+  db.collection('venues').add({
+    ownerId: currentUser.uid,
+    ownerName: currentUserData.businessName || currentUserData.name,
+    name, area, city: 'Karachi', price, capacity,
+    rating: 0, reviews: 0, tag: 'New', img, amenities, desc,
+    packages: [{ name:'Basic', price, guests: capacity, includes:['Hall rental','Basic décor','Sound system','Parking'] }],
+    status: 'pending',
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+  }).then(() => {
+    showToast('Venue submitted! It will go live once approved.', 'success');
+    ['ov-name','ov-price','ov-capacity','ov-img','ov-amenities','ov-desc'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('ov-area').value = '';
+    loadOwnerVenues();
+  }).catch(err => showToast(err.message, 'error'));
+}
+
+function loadOwnerVenues() {
+  if (!currentUser) return;
+  db.collection('venues').where('ownerId','==',currentUser.uid).get().then(snap => {
+    const list = document.getElementById('owner-venues-list');
+    if (snap.empty) { list.innerHTML = '<p style="font-size:13px;color:var(--tl)">You haven\'t added any venues yet.</p>'; return; }
+    list.innerHTML = snap.docs.map(d => {
+      const v = d.data();
+      const pillClass = v.status === 'approved' ? 'pill-green' : v.status === 'rejected' ? 'pill-red' : 'pill-orange';
+      return `<div style="border:1px solid var(--bd);border-radius:10px;padding:14px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+        <div>
+          <div style="font-weight:600;font-size:14px;margin-bottom:4px">${v.name}</div>
+          <div style="font-size:12px;color:var(--tl)">${v.area} · ${fmt(v.price)}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span class="pill ${pillClass}">${v.status}</span>
+          <button class="btn btn-outline btn-sm" onclick="deleteOwnerVenue('${d.id}')">Delete</button>
+        </div>
+      </div>`;
+    }).join('');
+  });
+}
+
+function deleteOwnerVenue(id) {
+  if (!confirm('Delete this venue?')) return;
+  db.collection('venues').doc(id).delete().then(() => { showToast('Venue deleted', 'info'); loadOwnerVenues(); });
+}
+
+/* ── ADMIN: OVERVIEW / ANALYTICS ── */
+function loadAdminOverview() {
+  const grid = document.getElementById('admin-stats-grid');
+  grid.innerHTML = '<div class="detail-stat"><div class="detail-stat-lbl">Loading…</div></div>';
+  if (!FIREBASE_READY) { grid.innerHTML = '<div class="detail-stat"><div class="detail-stat-lbl">Offline</div><div class="detail-stat-val">—</div></div>'; return; }
+  Promise.all([
+    db.collection('venues').get(),
+    db.collection('users').get(),
+    db.collection('bookings').get()
+  ]).then(([venuesSnap, usersSnap, bookingsSnap]) => {
+    const venues = venuesSnap.docs.map(d => d.data());
+    const users = usersSnap.docs.map(d => d.data());
+    const bookings = bookingsSnap.docs.map(d => d.data());
+    const stats = [
+      [String(STATIC_VENUES.length + venues.length), 'Total Venues'],
+      [String(venues.filter(v=>v.status==='pending').length), 'Pending Approval'],
+      [String(venues.filter(v=>v.status==='approved').length + STATIC_VENUES.length), 'Live Venues'],
+      [String(users.filter(u=>u.role==='owner').length), 'Banquet Owners'],
+      [String(users.filter(u=>u.role==='customer').length), 'Registered Guests'],
+      [String(bookings.length), 'Total Booking Requests'],
+      [String(bookings.filter(b=>b.status==='completed').length), 'Events Conducted'],
+      [String(bookings.filter(b=>b.status==='pending').length), 'Pending Requests']
+    ];
+    grid.innerHTML = stats.map(([v,l])=>`<div class="detail-stat"><div class="detail-stat-lbl">${l}</div><div class="detail-stat-val">${v}</div></div>`).join('');
+  }).catch(err => { grid.innerHTML = '<p style="color:var(--tl)">Could not load analytics.</p>'; console.error(err); });
+}
+
+/* ── ADMIN: BOOKINGS ── */
+function loadAdminBookings() {
+  const list = document.getElementById('admin-bookings-list');
+  if (!FIREBASE_READY) { list.innerHTML = '<p style="color:var(--tl)">Offline.</p>'; return; }
+  db.collection('bookings').orderBy('createdAt','desc').get().then(snap => {
+    if (snap.empty) { list.innerHTML = '<p style="color:var(--tl)">No booking requests yet.</p>'; return; }
+    const statusPill = s => s === 'completed' ? 'pill-green' : s === 'confirmed' ? 'pill-orange' : s === 'cancelled' ? 'pill-red' : 'pill-gold';
+    list.innerHTML = snap.docs.map(d => {
+      const b = d.data();
+      return `<div style="border:1px solid var(--bd);border-radius:10px;padding:16px;background:var(--white)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap">
+          <div>
+            <div style="font-weight:600;font-size:14.5px;margin-bottom:4px">${b.name} <span class="pill ${statusPill(b.status)}" style="margin-left:6px">${b.status}</span></div>
+            <div style="font-size:12.5px;color:var(--tl)">${b.venueName||'—'} · ${b.eventType} · ${b.date} · ${b.guests||'?'} guests</div>
+            <div style="font-size:12.5px;color:var(--tl)">${b.phone} · ${b.email||''} · Ref: ${b.ref}</div>
+          </div>
+          <select class="form-control" style="margin-bottom:0;width:auto" onchange="setBookingStatus('${d.id}',this.value)">
+            <option value="pending" ${b.status==='pending'?'selected':''}>Pending</option>
+            <option value="confirmed" ${b.status==='confirmed'?'selected':''}>Confirmed</option>
+            <option value="completed" ${b.status==='completed'?'selected':''}>Completed</option>
+            <option value="cancelled" ${b.status==='cancelled'?'selected':''}>Cancelled</option>
+          </select>
+        </div>
+      </div>`;
+    }).join('');
+  });
+}
+
+function setBookingStatus(id, status) {
+  db.collection('bookings').doc(id).update({status}).then(() => {
+    showToast('Booking status updated', 'success');
+    loadAdminBookings();
+    loadAdminOverview();
+  });
+}
+
+/* ── ADMIN: USERS ── */
+function loadAdminUsers() {
+  const list = document.getElementById('admin-users-list');
+  if (!FIREBASE_READY) { list.innerHTML = '<p style="color:var(--tl)">Offline.</p>'; return; }
+  db.collection('users').get().then(snap => {
+    if (snap.empty) { list.innerHTML = '<p style="color:var(--tl)">No users yet.</p>'; return; }
+    list.innerHTML = snap.docs.map(d => {
+      const u = d.data();
+      return `<div style="border:1px solid var(--bd);border-radius:10px;padding:14px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+        <div>
+          <div style="font-weight:600;font-size:14px">${u.businessName || u.name}</div>
+          <div style="font-size:12px;color:var(--tl)">${u.email} · ${u.phone||''}</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <select class="form-control" style="margin-bottom:0;width:auto" onchange="setUserRole('${d.id}',this.value)">
+            <option value="customer" ${u.role==='customer'?'selected':''}>Guest</option>
+            <option value="owner" ${u.role==='owner'?'selected':''}>Banquet Owner</option>
+            <option value="admin" ${u.role==='admin'?'selected':''}>Admin</option>
+          </select>
+          <button class="btn btn-outline btn-sm" onclick="deleteUserProfile('${d.id}')">Remove</button>
+        </div>
+      </div>`;
+    }).join('');
+  });
+}
+
+function setUserRole(uid, role) {
+  db.collection('users').doc(uid).update({role}).then(() => {
+    showToast('User role updated', 'success');
+    loadAdminUsers();
+    loadAdminOverview();
+  });
+}
+
+function deleteUserProfile(uid) {
+  if (!confirm('Remove this user\'s profile? They will lose role-based access.')) return;
+  db.collection('users').doc(uid).delete().then(() => {
+    showToast('User profile removed', 'info');
+    loadAdminUsers();
+    loadAdminOverview();
+  });
+}
+
+/* ── ADMIN: SITE SETTINGS ── */
+function loadSiteSettingsIntoForm() {
+  if (!FIREBASE_READY) return;
+  db.collection('settings').doc('site').get().then(doc => {
+    const s = doc.exists ? doc.data() : {};
+    document.getElementById('as-hero-title').value = s.heroTitle || '';
+    document.getElementById('as-hero-sub').value = s.heroSubtitle || '';
+    document.getElementById('as-phone').value = s.contactPhone || '';
+    document.getElementById('as-email').value = s.contactEmail || '';
+    document.getElementById('as-whatsapp').value = s.contactWhatsapp || '';
+    document.getElementById('as-hours').value = s.businessHours || '';
+    document.getElementById('as-address').value = s.contactAddress || '';
+  });
+}
+
+function saveSiteSettings() {
+  const data = {
+    heroTitle: document.getElementById('as-hero-title').value.trim(),
+    heroSubtitle: document.getElementById('as-hero-sub').value.trim(),
+    contactPhone: document.getElementById('as-phone').value.trim(),
+    contactEmail: document.getElementById('as-email').value.trim(),
+    contactWhatsapp: document.getElementById('as-whatsapp').value.trim(),
+    businessHours: document.getElementById('as-hours').value.trim(),
+    contactAddress: document.getElementById('as-address').value.trim()
+  };
+  db.collection('settings').doc('site').set(data, {merge:true}).then(() => {
+    showToast('Website content updated!', 'success');
+    applySiteSettings(data);
+  }).catch(err => showToast(err.message, 'error'));
+}
+
+function applySiteSettings(s) {
+  if (s.heroTitle) document.querySelector('.hero-title').innerHTML = s.heroTitle;
+  if (s.heroSubtitle) document.querySelector('.hero-subtitle').textContent = s.heroSubtitle;
+  if (s.contactPhone) document.querySelectorAll('.contact-item-val')[1] && (document.querySelectorAll('.contact-item-val')[1].textContent = s.contactPhone);
+}
+
+function loadPublicSiteSettings() {
+  if (!FIREBASE_READY) return;
+  db.collection('settings').doc('site').get().then(doc => {
+    if (doc.exists) applySiteSettings(doc.data());
+  }).catch(()=>{});
+}
+
+/* ── ADMIN: MODERATE VENUES ── */
+function loadAdminVenues() {
+  db.collection('venues').orderBy('createdAt','desc').get().then(snap => {
+    const list = document.getElementById('admin-venues-list');
+    if (snap.empty) { list.innerHTML = '<p style="color:var(--tl)">No venue submissions yet.</p>'; return; }
+    list.innerHTML = snap.docs.map(d => {
+      const v = d.data();
+      const pillClass = v.status === 'approved' ? 'pill-green' : v.status === 'rejected' ? 'pill-red' : 'pill-orange';
+      return `<div style="border:1px solid var(--bd);border-radius:10px;padding:16px;background:var(--white)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap">
+          <div>
+            <div style="font-weight:600;font-size:15px;margin-bottom:4px">${v.name} <span class="pill ${pillClass}" style="margin-left:6px">${v.status}</span></div>
+            <div style="font-size:12.5px;color:var(--tl);margin-bottom:6px">${v.area} · ${fmt(v.price)} · Up to ${v.capacity} guests · By ${v.ownerName||'Unknown'}</div>
+            <div style="font-size:13px;color:var(--tm)">${v.desc||''}</div>
+          </div>
+          <div style="display:flex;gap:8px;flex-shrink:0">
+            <button class="btn btn-primary btn-sm" onclick="setVenueStatus('${d.id}','approved')">Approve</button>
+            <button class="btn btn-outline btn-sm" onclick="setVenueStatus('${d.id}','rejected')">Reject</button>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  });
+}
+
+function setVenueStatus(id, status) {
+  db.collection('venues').doc(id).update({status}).then(() => {
+    showToast(`Venue ${status}`, 'success');
+    loadAdminVenues();
+  });
+}
+
+/* ── INIT ── */
+if (FIREBASE_READY) {
+  auth.onAuthStateChanged(async (user) => {
+    currentUser = user;
+    if (user) {
+      try {
+        const doc = await db.collection('users').doc(user.uid).get();
+        currentUserData = doc.exists ? doc.data() : null;
+      } catch (e) { currentUserData = null; }
+    } else {
+      currentUserData = null;
+    }
+    updateAccountUI();
+  });
+  listenFirestoreVenues();
+  loadPublicSiteSettings();
+}
+renderFeatured();
+showPage('home');
+</script>
+</body>
+</html>
