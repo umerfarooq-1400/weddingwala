@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WeddingWala — Pakistan's #1 Wedding Venue Platfor  m</title>
+  <title>WeddingWala — Pakistan's #1 Wedding Venue Platform</title>
   <meta name="description" content="Find and book the perfect wedding venue in Karachi. Browse 500+ verified banquet halls, marquees and event spaces."/>
   <meta property="og:title" content="WeddingWala — Find Your Perfect Wedding Venue"/>
   <meta property="og:description" content="Pakistan's #1 wedding venue booking platform. 500+ verified venues in Karachi."/>
@@ -754,6 +754,10 @@
           <button class="nav-link" id="nav-browse" onclick="showPage('browse')">Browse</button>
           <button class="btn btn-primary nav-cta" onclick="showPage('browse')">Find Venue</button>
         </div>
+        <button class="nav-menu-trigger" id="nav-bell-btn" onclick="showPage('admin'); switchAdminTabById('activity');" aria-label="Notifications" style="display:none;position:relative">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+          <span id="nav-bell-badge" style="display:none;position:absolute;top:2px;right:2px;background:var(--m);color:#fff;font-size:9px;font-weight:700;border-radius:10px;min-width:15px;height:15px;align-items:center;justify-content:center;padding:0 3px">0</span>
+        </button>
         <button class="nav-menu-trigger" id="nav-avatar-btn" onclick="goToProfile()" aria-label="My Profile" style="display:none;background:var(--m);color:#fff;border-radius:50%;width:34px;height:34px;font-weight:700;font-size:14px;margin-left:8px">
           <span id="nav-avatar-letter">U</span>
         </button>
@@ -1400,8 +1404,10 @@
       <div class="detail-tabs" style="flex-wrap:wrap">
         <button class="detail-tab active" onclick="switchAdminTab('overview',this)">Overview</button>
         <button class="detail-tab" onclick="switchAdminTab('venues',this)">Venues</button>
+        <button class="detail-tab" onclick="switchAdminTab('addvenue',this)">+ Add Venue</button>
         <button class="detail-tab" onclick="switchAdminTab('bookings',this)">Bookings</button>
         <button class="detail-tab" onclick="switchAdminTab('users',this)">Users</button>
+        <button class="detail-tab" onclick="switchAdminTab('activity',this)">Activity Log</button>
         <button class="detail-tab" onclick="switchAdminTab('settings',this)">Site Settings</button>
       </div>
 
@@ -1417,6 +1423,33 @@
         <div id="admin-venues-list" style="display:flex;flex-direction:column;gap:12px"></div>
       </div>
 
+      <!-- ADMIN ADD VENUE TAB -->
+      <div id="admin-tab-addvenue" class="detail-tab-content" style="display:none">
+        <h3 class="detail-about-title" style="margin-bottom:16px">Add Venue Directly (Auto-Approved)</h3>
+        <label class="form-label">Venue Name *</label>
+        <input type="text" class="form-control" id="av-name" placeholder="e.g. Sunset Marquee"/>
+        <div class="modal-grid-2" style="gap:12px;margin-bottom:12px">
+          <div>
+            <label class="form-label">Area *</label>
+            <select class="form-control" id="av-area" style="margin-bottom:0">
+              <option value="">Select area</option>
+              <option>Clifton</option><option>DHA Phase 5</option><option>Bahria Town</option>
+              <option>Gulshan</option><option>PECHS</option><option>North Nazimabad</option><option>Other</option>
+            </select>
+          </div>
+          <div><label class="form-label">Starting Price (PKR) *</label><input type="number" class="form-control" id="av-price" placeholder="e.g. 200000" style="margin-bottom:0"/></div>
+        </div>
+        <div class="modal-grid-2" style="gap:12px;margin-bottom:12px">
+          <div><label class="form-label">Max Capacity *</label><input type="number" class="form-control" id="av-capacity" placeholder="e.g. 500" style="margin-bottom:0"/></div>
+          <div><label class="form-label">Image URL</label><input type="text" class="form-control" id="av-img" placeholder="https://…" style="margin-bottom:0"/></div>
+        </div>
+        <label class="form-label">Amenities (comma separated)</label>
+        <input type="text" class="form-control" id="av-amenities" placeholder="AC, Parking, Catering, Sound System"/>
+        <label class="form-label">Description *</label>
+        <textarea class="form-control" id="av-desc" rows="3" style="resize:vertical" placeholder="Describe the venue…"></textarea>
+        <button class="btn btn-primary btn-lg" style="width:100%" onclick="submitAdminVenue()">Add Venue (Goes Live Immediately) →</button>
+      </div>
+
       <!-- BOOKINGS TAB -->
       <div id="admin-tab-bookings" class="detail-tab-content" style="display:none">
         <h3 class="detail-about-title" style="margin-bottom:16px">All Booking Requests</h3>
@@ -1429,6 +1462,12 @@
         <div id="admin-users-list" style="display:flex;flex-direction:column;gap:12px"></div>
       </div>
 
+      <!-- ACTIVITY LOG TAB -->
+      <div id="admin-tab-activity" class="detail-tab-content" style="display:none">
+        <h3 class="detail-about-title" style="margin-bottom:16px">Recent Activity</h3>
+        <div id="admin-activity-list" style="display:flex;flex-direction:column;gap:10px"></div>
+      </div>
+
       <!-- SITE SETTINGS TAB -->
       <div id="admin-tab-settings" class="detail-tab-content" style="display:none">
         <h3 class="detail-about-title" style="margin-bottom:16px">Edit Website Content</h3>
@@ -1436,6 +1475,13 @@
         <input type="text" class="form-control" id="as-hero-title" placeholder="Find Your Perfect Wedding Venue"/>
         <label class="form-label">Hero Subtitle</label>
         <textarea class="form-control" id="as-hero-sub" rows="2" style="resize:vertical" placeholder="Browse 500+ verified banquet halls…"></textarea>
+        <label class="form-label">Hero Background Image URL</label>
+        <input type="text" class="form-control" id="as-hero-img" placeholder="https://…"/>
+        <label class="form-label">Theme Color (Primary)</label>
+        <div style="display:flex;gap:10px;align-items:center;margin-bottom:14px">
+          <input type="color" id="as-theme-color" value="#C4161C" style="width:52px;height:40px;padding:2px;border-radius:8px;border:1.5px solid var(--bd);cursor:pointer"/>
+          <span style="font-size:12.5px;color:var(--tl)">Changes the site's primary red color everywhere</span>
+        </div>
         <div class="modal-grid-2" style="gap:12px;margin-bottom:12px">
           <div><label class="form-label">Contact Phone</label><input type="text" class="form-control" id="as-phone" style="margin-bottom:0"/></div>
           <div><label class="form-label">Contact Email</label><input type="text" class="form-control" id="as-email" style="margin-bottom:0"/></div>
@@ -1605,7 +1651,7 @@ function showPage(p) {
   if (navEl) navEl.classList.add('active');
   if (p === 'browse') renderBrowse();
   if (p === 'owner') { document.getElementById('owner-welcome').textContent = 'Welcome, ' + (currentUserData.businessName || currentUserData.name) + ' — add and manage your venue listings'; loadOwnerProfileForm(); loadOwnerVenues(); }
-  if (p === 'admin') { loadAdminOverview(); loadAdminVenues(); loadAdminBookings(); loadAdminUsers(); loadSiteSettingsIntoForm(); }
+  if (p === 'admin') { loadAdminOverview(); loadAdminVenues(); loadAdminBookings(); loadAdminUsers(); loadActivityLog(); loadSiteSettingsIntoForm(); }
   if (p === 'profile') loadProfilePage();
   window.scrollTo({top:0, behavior:'smooth'});
 }
@@ -1618,11 +1664,19 @@ function goToProfile() {
 }
 
 function switchAdminTab(name, btn) {
-  ['overview','venues','bookings','users','settings'].forEach(t => {
+  ['overview','venues','addvenue','bookings','users','activity','settings'].forEach(t => {
     document.getElementById('admin-tab-'+t).style.display = t===name ? 'block' : 'none';
   });
   btn.parentElement.querySelectorAll('.detail-tab').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  if (name === 'activity') markActivitySeen();
+}
+
+function switchAdminTabById(name) {
+  const btns = document.querySelectorAll('#admin-page .detail-tabs .detail-tab');
+  const tabNames = ['overview','venues','addvenue','bookings','users','activity','settings'];
+  const idx = tabNames.indexOf(name);
+  if (idx >= 0 && btns[idx]) switchAdminTab(name, btns[idx]);
 }
 
 /* ── FORMAT ── */
@@ -1995,7 +2049,9 @@ function updateAccountUI() {
     guestView.style.display = 'block';
     userView.style.display = 'none';
     navAvatarBtn.style.display = 'none';
+    document.getElementById('nav-bell-btn').style.display = 'none';
   }
+  checkNotificationsForAdmin();
 }
 
 /* ── TOAST ── */
@@ -2070,6 +2126,63 @@ function saveOwnerProfileDetails() {
   }).catch(err => showToast(err.message, 'error'));
 }
 
+/* ── ACTIVITY LOG / NOTIFICATIONS ── */
+function logActivity(type, message) {
+  if (!FIREBASE_READY) return;
+  db.collection('activityLog').add({
+    type, message,
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+  }).catch(err => console.error('Activity log error:', err));
+}
+
+function loadActivityLog() {
+  const list = document.getElementById('admin-activity-list');
+  if (!FIREBASE_READY) { list.innerHTML = '<p style="color:var(--tl)">Offline.</p>'; return; }
+  db.collection('activityLog').orderBy('createdAt','desc').limit(50).get().then(snap => {
+    if (snap.empty) { list.innerHTML = '<p style="color:var(--tl)">No activity yet.</p>'; return; }
+    list.innerHTML = snap.docs.map(d => {
+      const a = d.data();
+      const time = a.createdAt ? a.createdAt.toDate().toLocaleString() : '';
+      return `<div style="border-left:3px solid var(--m);padding:10px 14px;background:var(--off);border-radius:0 8px 8px 0">
+        <div style="font-size:13.5px;color:var(--td)">${a.message}</div>
+        <div style="font-size:11px;color:var(--tl);margin-top:3px">${time}</div>
+      </div>`;
+    }).join('');
+    updateNotificationBell(snap.docs);
+  });
+}
+
+function updateNotificationBell(docs) {
+  if (!currentUserData || currentUserData.role !== 'admin') return;
+  const lastSeen = parseInt(localStorage.getItem('admin_last_seen_activity') || '0');
+  const unseen = docs.filter(d => {
+    const t = d.data().createdAt;
+    return t && t.toMillis() > lastSeen;
+  }).length;
+  const badge = document.getElementById('nav-bell-badge');
+  if (unseen > 0) {
+    badge.style.display = 'flex';
+    badge.textContent = unseen > 9 ? '9+' : unseen;
+  } else {
+    badge.style.display = 'none';
+  }
+}
+
+function markActivitySeen() {
+  localStorage.setItem('admin_last_seen_activity', Date.now().toString());
+  document.getElementById('nav-bell-badge').style.display = 'none';
+}
+
+function checkNotificationsForAdmin() {
+  if (!currentUserData || currentUserData.role !== 'admin' || !FIREBASE_READY) return;
+  document.getElementById('nav-bell-btn').style.display = 'flex';
+  document.getElementById('nav-bell-btn').style.alignItems = 'center';
+  document.getElementById('nav-bell-btn').style.justifyContent = 'center';
+  db.collection('activityLog').orderBy('createdAt','desc').limit(50).get().then(snap => {
+    updateNotificationBell(snap.docs);
+  });
+}
+
 /* ── OWNER: ADD / MANAGE VENUES ── */
 function submitOwnerVenue() {
   if (!FIREBASE_READY) { showToast('Backend unavailable right now — please check your internet connection.', 'error'); return; }
@@ -2096,6 +2209,7 @@ function submitOwnerVenue() {
     createdAt: firebase.firestore.FieldValue.serverTimestamp()
   }).then(() => {
     showToast('Venue submitted! It will go live once approved.', 'success');
+    logActivity('venue_submitted', `${currentUserData.businessName || currentUserData.name} submitted a new venue: "${name}" (${area})`);
     ['ov-name','ov-price','ov-capacity','ov-img','ov-amenities','ov-desc'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('ov-area').value = '';
     loadOwnerVenues();
@@ -2126,7 +2240,44 @@ function loadOwnerVenues() {
 
 function deleteOwnerVenue(id) {
   if (!confirm('Delete this venue?')) return;
-  db.collection('venues').doc(id).delete().then(() => { showToast('Venue deleted', 'info'); loadOwnerVenues(); });
+  db.collection('venues').doc(id).get().then(doc => {
+    const v = doc.exists ? doc.data() : null;
+    return db.collection('venues').doc(id).delete().then(() => v);
+  }).then(v => {
+    showToast('Venue deleted', 'info');
+    if (v) logActivity('venue_deleted', `${currentUserData.businessName || currentUserData.name} deleted venue: "${v.name}"`);
+    loadOwnerVenues();
+  });
+}
+
+/* ── ADMIN: DIRECTLY ADD VENUE ── */
+function submitAdminVenue() {
+  const name = document.getElementById('av-name').value.trim();
+  const area = document.getElementById('av-area').value;
+  const price = parseInt(document.getElementById('av-price').value);
+  const capacity = parseInt(document.getElementById('av-capacity').value);
+  const img = document.getElementById('av-img').value.trim() || 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=75';
+  const amenities = document.getElementById('av-amenities').value.split(',').map(a=>a.trim()).filter(Boolean);
+  const desc = document.getElementById('av-desc').value.trim();
+  if (!name || !area || !price || !capacity || !desc) {
+    showToast('Please fill in all required fields', 'error'); return;
+  }
+  db.collection('venues').add({
+    ownerId: null,
+    ownerName: 'WeddingWala (Admin)',
+    name, area, city: 'Karachi', price, capacity,
+    rating: 0, reviews: 0, tag: 'New', img, amenities, desc,
+    packages: [{ name:'Basic', price, guests: capacity, includes:['Hall rental','Basic décor','Sound system','Parking'] }],
+    status: 'approved',
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+  }).then(() => {
+    showToast('Venue added and is live now!', 'success');
+    logActivity('venue_added_admin', `Admin directly added a new venue: "${name}" (${area})`);
+    ['av-name','av-price','av-capacity','av-img','av-amenities','av-desc'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('av-area').value = '';
+    loadAdminVenues();
+    loadAdminOverview();
+  }).catch(err => showToast(err.message, 'error'));
 }
 
 /* ── ADMIN: OVERVIEW / ANALYTICS ── */
@@ -2185,10 +2336,15 @@ function loadAdminBookings() {
 }
 
 function setBookingStatus(id, status) {
-  db.collection('bookings').doc(id).update({status}).then(() => {
+  db.collection('bookings').doc(id).get().then(doc => {
+    const b = doc.exists ? doc.data() : null;
+    return db.collection('bookings').doc(id).update({status}).then(() => b);
+  }).then(b => {
     showToast('Booking status updated', 'success');
+    if (b) logActivity('booking_status', `Booking for "${b.venueName||'venue'}" marked as ${status} (${b.name})`);
     loadAdminBookings();
     loadAdminOverview();
+    loadActivityLog();
   });
 }
 
@@ -2219,19 +2375,29 @@ function loadAdminUsers() {
 }
 
 function setUserRole(uid, role) {
-  db.collection('users').doc(uid).update({role}).then(() => {
+  db.collection('users').doc(uid).get().then(doc => {
+    const u = doc.exists ? doc.data() : null;
+    return db.collection('users').doc(uid).update({role}).then(() => u);
+  }).then(u => {
     showToast('User role updated', 'success');
+    if (u) logActivity('user_role', `Admin changed role of "${u.businessName||u.name}" to ${role}`);
     loadAdminUsers();
     loadAdminOverview();
+    loadActivityLog();
   });
 }
 
 function deleteUserProfile(uid) {
   if (!confirm('Remove this user\'s profile? They will lose role-based access.')) return;
-  db.collection('users').doc(uid).delete().then(() => {
+  db.collection('users').doc(uid).get().then(doc => {
+    const u = doc.exists ? doc.data() : null;
+    return db.collection('users').doc(uid).delete().then(() => u);
+  }).then(u => {
     showToast('User profile removed', 'info');
+    if (u) logActivity('user_removed', `Admin removed user profile: "${u.businessName||u.name}"`);
     loadAdminUsers();
     loadAdminOverview();
+    loadActivityLog();
   });
 }
 
@@ -2242,6 +2408,8 @@ function loadSiteSettingsIntoForm() {
     const s = doc.exists ? doc.data() : {};
     document.getElementById('as-hero-title').value = s.heroTitle || '';
     document.getElementById('as-hero-sub').value = s.heroSubtitle || '';
+    document.getElementById('as-hero-img').value = s.heroImage || '';
+    document.getElementById('as-theme-color').value = s.themeColor || '#C4161C';
     document.getElementById('as-phone').value = s.contactPhone || '';
     document.getElementById('as-email').value = s.contactEmail || '';
     document.getElementById('as-whatsapp').value = s.contactWhatsapp || '';
@@ -2254,6 +2422,8 @@ function saveSiteSettings() {
   const data = {
     heroTitle: document.getElementById('as-hero-title').value.trim(),
     heroSubtitle: document.getElementById('as-hero-sub').value.trim(),
+    heroImage: document.getElementById('as-hero-img').value.trim(),
+    themeColor: document.getElementById('as-theme-color').value,
     contactPhone: document.getElementById('as-phone').value.trim(),
     contactEmail: document.getElementById('as-email').value.trim(),
     contactWhatsapp: document.getElementById('as-whatsapp').value.trim(),
@@ -2262,14 +2432,32 @@ function saveSiteSettings() {
   };
   db.collection('settings').doc('site').set(data, {merge:true}).then(() => {
     showToast('Website content updated!', 'success');
+    logActivity('site_settings', 'Admin updated website content/theme settings');
     applySiteSettings(data);
   }).catch(err => showToast(err.message, 'error'));
+}
+
+function shadeColor(hex, percent) {
+  // percent negative = darker, positive = lighter
+  let r = parseInt(hex.substring(1,3),16), g = parseInt(hex.substring(3,5),16), b = parseInt(hex.substring(5,7),16);
+  r = Math.min(255, Math.max(0, Math.round(r + (percent/100)*255)));
+  g = Math.min(255, Math.max(0, Math.round(g + (percent/100)*255)));
+  b = Math.min(255, Math.max(0, Math.round(b + (percent/100)*255)));
+  return '#' + [r,g,b].map(v => v.toString(16).padStart(2,'0')).join('');
 }
 
 function applySiteSettings(s) {
   if (s.heroTitle) document.querySelector('.hero-title').innerHTML = s.heroTitle;
   if (s.heroSubtitle) document.querySelector('.hero-subtitle').textContent = s.heroSubtitle;
-  if (s.contactPhone) document.querySelectorAll('.contact-item-val')[1] && (document.querySelectorAll('.contact-item-val')[1].textContent = s.contactPhone);
+  if (s.heroImage) document.querySelector('.hero-bg').style.background = `url('${s.heroImage}') center 22%/cover`;
+  if (s.contactPhone) { const el = document.querySelectorAll('.contact-item-val')[1]; if (el) el.textContent = s.contactPhone; }
+  if (s.themeColor) {
+    const root = document.documentElement.style;
+    root.setProperty('--m', s.themeColor);
+    root.setProperty('--gold', s.themeColor);
+    root.setProperty('--md', shadeColor(s.themeColor, -20));
+    root.setProperty('--gd', shadeColor(s.themeColor, -20));
+  }
 }
 
 function loadPublicSiteSettings() {
@@ -2305,9 +2493,14 @@ function loadAdminVenues() {
 }
 
 function setVenueStatus(id, status) {
-  db.collection('venues').doc(id).update({status}).then(() => {
+  db.collection('venues').doc(id).get().then(doc => {
+    const v = doc.exists ? doc.data() : null;
+    return db.collection('venues').doc(id).update({status}).then(() => v);
+  }).then(v => {
     showToast(`Venue ${status}`, 'success');
+    if (v) logActivity('venue_status', `Admin ${status} venue: "${v.name}"`);
     loadAdminVenues();
+    loadActivityLog();
   });
 }
 
